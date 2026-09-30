@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Green Returns - Opening</title>
+	<link rel="stylesheet" href="css/opening.css">
+	<link rel="stylesheet" href="css/main-menu.css">
+	<link rel="stylesheet" href="css/map.css">
+	<link rel="stylesheet" href="css/river.css">
+	<link rel="stylesheet" href="css/forest.css">
+	<link rel="stylesheet" href="css/village.css">
+	<link rel="stylesheet" href="css/buttons.css">
+</head>
+<body>
+	<main class="game-screen" aria-label="Opening Scene The Green Returns">
+		<section class="opening-scene">
+			<img
+				class="scene-background"
+				src="assets/images/backgrounds/train_dry.png"
+				alt="Interior kereta"
+			>
+			<img
+				class="scene-background scene-background-green"
+				src="assets/images/backgrounds/train_green.png"
+				alt="Bayangan desa yang kembali hijau"
+			>
+			<button id="sound-button" class="sound-button" type="button" aria-pressed="false">
+				<span aria-hidden="true">SUARA</span>
+				<span id="sound-state">ON</span>
+			</button>
+			<button id="skip-opening-button" class="skip-opening-button" type="button">LEWATI</button>
+
+			<div class="rayna-area" aria-label="Rayna">
+				<img
+					class="rayna"
+					src="assets/images/characters/rayna_sad.png"
+					alt="Rayna sedih"
+				>
+			</div>
+
+			<section class="dialogue-box" aria-live="polite" aria-label="Dialog Rayna">
+				<p id="dialogue-text"></p>
+				<div class="dialogue-actions">
+					<button id="back-button" type="button" disabled>
+						<span class="back-chevron" aria-hidden="true">&lt;&lt;</span>
+						<span>KEMBALI</span>
+					</button>
+					<button id="next-button" type="button">
+						<span>LANJUT</span>
+						<span class="next-chevron" aria-hidden="true">&gt;&gt;</span>
+					</button>
+				</div>
+			</section>
+		</section>
+		<section class="main-menu" aria-label="Menu utama" aria-hidden="true">
+				<button id="main-menu-back-button" class="main-menu-back-button" type="button">
+					<span aria-hidden="true">&lt;&lt;</span>
+					<span>KEMBALI</span>
+				</button>
+			<div class="main-menu-content">
+				<img class="main-menu-title" src="assets/images/judul_game.png" alt="The Green Returns - Hijau Itu Kembali">
+				<nav class="main-menu-actions" aria-label="Pilihan menu utama">
+					<button id="play-button" type="button">MULAI</button>
+					<button id="settings-button" type="button">PENGATURAN</button>
+					<button id="credits-button" type="button">KREDIT</button>
+				</nav>
+			</div>
+			<div class="main-menu-rayna-area" aria-label="Rayna">
+				<img class="main-menu-rayna" src="assets/images/characters/rayna_idle_01.png" alt="Rayna">
+			</div>
+			<section id="settings-panel" class="menu-panel" aria-labelledby="settings-title" hidden>
+				<div class="menu-panel-card">
+					<button class="panel-close-button" type="button" data-close-panel aria-label="Tutup Settings">&times;</button>
+					<p class="panel-kicker">SUARA</p>
+					<h2 id="settings-title">PENGATURAN</h2>
+					<div class="settings-controls">
+						<label for="bgm-volume">VOLUME MUSIK LATAR<output id="bgm-volume-value">30%</output></label>
+						<input id="bgm-volume" type="range" min="0" max="1" step="0.01" value="0.3">
+						<label for="sfx-volume">VOLUME EFEK SUARA <output id="sfx-volume-value">100%</output></label>
+						<input id="sfx-volume" type="range" min="0" max="1" step="0.01" value="1">
+						<div class="settings-toggle-row">
+							<span>MUSIK LATAR</span>
+							<button id="bgm-toggle" type="button" aria-pressed="false">MUTE</button>
+						</div>
+						<div class="settings-toggle-row">
+							<span>EFEK SUARA</span>
+							<button id="sfx-toggle" type="button" aria-pressed="false">MUTE</button>
+						</div>
+					</div>
+					<button class="panel-back-button" type="button" data-close-panel>KEMBALI</button>
+				</div>
+			</section>
+			<section id="credits-panel" class="menu-panel" aria-labelledby="credits-title" hidden>
+				<div class="menu-panel-card credits-card">
+					<button class="panel-close-button" type="button" data-close-panel aria-label="Tutup Credits">&times;</button>
+					<p class="panel-kicker">TIM PENGEMBANG</p>
+					<h2 id="credits-title">THE GREEN<br>RETURNS</h2>
+					<p class="credits-intro">&quot;Sebuah karya yang dikembangkan bersama dengan kepedulian terhadap lingkungan.&quot;</p>
+					<div class="credits-grid">
+						<div><strong>TIM KAMI</strong><p>Kemala Putri Oktaviani<br>Game Design &bull; Game Development</p><p>Rinzani Fauziah<br>Asset Research &bull; Visual</p><p>Rafa Zulfahmi<br>Asset Research &bull; Game Logic &bull; Testing</p></div>
+						<div><strong>DIBUAT DENGAN</strong><p>HTML &bull; CSS &bull; JavaScript<br>Visual Studio Code</p><strong>Dengan Ucapan Terima Kasih</strong><p>SMKN 1 Cibinong<br>Guru Pembimbing<br>Mentor Kelompok<br><br>dan seluruh pihak yang mendukung proyek ini.</p></div>
+					</div>
+					<p class="credits-quote">&quot;Tindakan kecil dapat mengembalikan hijaunya lingkungan.&quot;</p>
+					<!--<button class="panel-back-button" type="button" data-close-panel>KEMBALI</button>-->
+				</div>
+			</section>
+		</section>
+		<section class="map-scene" aria-label="Peta desa" aria-hidden="true" hidden>
+			<div class="map-world">
+				<img class="map-background" src="assets/images/backgrounds/map_desa_dry.jpeg" alt="Peta desa kering">
+				<img class="map-background map-background-green" src="assets/images/backgrounds/map_desa_green.png" alt="Peta desa yang kembali hijau">
+				<button class="map-door" data-area="sungai" style="left: 24%;" type="button" aria-label="Masuk area sungai">
+					<img src="assets/images/objects/door_sungai.png" alt="Pintu area sungai">
+					<span class="map-door-label">SUNGAI</span>
+				</button>
+				<button class="map-door" data-area="hutan" style="left: 53%;" type="button" aria-label="Masuk area hutan">
+					<img src="assets/images/objects/door_hutan.png" alt="Pintu area hutan">
+					<span class="map-door-label">HUTAN</span>
+				</button>
+				<button class="map-door" data-area="desa" style="left: 82%;" type="button" aria-label="Masuk area desa">
+					<img src="assets/images/objects/door_desa.png" alt="Pintu area desa">
+					<span class="map-door-label">DESA</span>
+				</button>
+			</div>
+			<img class="map-rayna" src="assets/images/characters/rayna_walk_right_1.png" alt="Rayna berjalan">
+			<button id="map-back-button" class="map-back-button" type="button">&lt;&lt; KEMBALI</button>
+			<div class="map-top-controls" aria-label="Kontrol peta">
+				<button id="map-settings-button" class="map-settings-button map-control-button" type="button" aria-label="Buka pengaturan" title="Pengaturan"><span class="map-icon map-icon-settings" aria-hidden="true"></span></button>
+				<button id="map-objectives-icon" class="map-status-icon map-control-button target-status-icon" type="button" aria-label="Buka target area" aria-expanded="false" title="Target area"><span class="map-icon map-icon-target" aria-hidden="true"></span></button>
+				<button id="map-grade-icon" class="map-status-icon map-control-button grade-status-icon" type="button" aria-label="Buka grade akhir" aria-expanded="false" disabled title="Grade akhir"><span class="map-icon map-icon-star" aria-hidden="true"></span></button>
+			</div>
+			<section class="map-sign" aria-labelledby="map-sign-title">
+				<p class="map-sign-kicker">MISI RAYNA</p>
+				<h2 id="map-sign-title">Pulihkan Desa</h2>
+				<p class="map-sign-goal">Selesaikan tiga area agar desa kembali hijau.</p>
+				<div class="map-sign-progress" aria-label="Urutan area">
+					<span>1. Sungai</span><span aria-hidden="true">→</span><span>2. Hutan</span><span aria-hidden="true">→</span><span>3. Desa</span>
+				</div>
+				<button id="map-info-button" type="button">CARA BERMAIN</button>
+			</section>
+			<section class="map-scoreboard" aria-labelledby="map-scoreboard-title">
+				<p id="map-scoreboard-title">SKOR PER AREA</p>
+				<div class="map-score-list">
+					<div class="map-score-item" data-score-area="sungai"><span>SUNGAI</span><strong>—</strong></div>
+					<div class="map-score-item" data-score-area="hutan"><span>HUTAN</span><strong>—</strong></div>
+					<div class="map-score-item" data-score-area="desa"><span>DESA</span><strong>—</strong></div>
+				</div>
+				<p id="map-score-average" class="map-score-average">Rata-rata akhir: —</p>
+			</section>
+			<section class="map-objectives" aria-labelledby="map-objectives-title">
+				<div class="map-info-card map-objectives-card">
+					<button id="map-objectives-close" class="map-info-close" type="button" aria-label="Tutup target area">&times;</button>
+					<h2 id="map-objectives-title">TARGET AREA</h2>
+					<ul>
+						<li data-objective="sungai"><span class="objective-icon">&#9675;</span><span>SUNGAI</span></li>
+						<li data-objective="hutan"><span class="objective-icon">&#9675;</span><span>HUTAN</span></li>
+						<li data-objective="desa"><span class="objective-icon">&#9675;</span><span>DESA</span></li>
+					</ul>
+					<button id="map-grade-button" type="button" disabled>GRADE AKHIR</button>
+					<p id="map-grade-status" aria-live="polite">Selesaikan 3 area</p>
+				</div>
+			</section>
+			<section id="map-settings-panel" class="map-settings-panel" aria-labelledby="map-settings-title" hidden>
+				<div class="map-settings-card">
+					<button id="map-settings-close" class="map-info-close" type="button" aria-label="Tutup settings">&times;</button>
+					<h2 id="map-settings-title">PENGATURAN</h2>
+					<label for="map-bgm-volume">VOLUME MUSIK LATAR <output id="map-bgm-volume-value">30%</output></label>
+					<input id="map-bgm-volume" type="range" min="0" max="1" step="0.01" value="0.3">
+					<label for="map-sfx-volume">VOLUME EFEK SUARA <output id="map-sfx-volume-value">100%</output></label>
+					<input id="map-sfx-volume" type="range" min="0" max="1" step="0.01" value="1">
+					<button id="map-bgm-toggle" type="button">MUTE MUSIK LATAR</button>
+					<button id="map-sfx-toggle" type="button">MUTE EFEK SUARA</button>
+					<button id="map-restart-button" class="map-restart-button" type="button">ULANGI PROGRES</button>
+				</div>
+			</section>
+			<section id="map-restart-confirmation" class="map-restart-confirmation" aria-labelledby="map-restart-title" hidden>
+				<div class="map-info-card map-restart-card" role="dialog" aria-modal="true" aria-labelledby="map-restart-title">
+					<p class="map-restart-kicker">KONFIRMASI</p>
+					<h2 id="map-restart-title">Mulai ulang semua game?</h2>
+					<p id="map-restart-description">Apakah kamu yakin ingin mengulang dari awal? Semua progres, skor, dan pencapaian yang sudah didapat akan dimulai dari awal.</p>
+					<div class="map-restart-actions">
+						<button id="map-restart-no" type="button">NO</button>
+						<button id="map-restart-yes" type="button">YES</button>
+					</div>
+				</div>
+			</section>
+			<section id="map-restart-selection" class="map-restart-confirmation" aria-labelledby="map-restart-selection-title" hidden>
+				<div class="map-info-card map-restart-card" role="dialog" aria-modal="true" aria-labelledby="map-restart-selection-title">
+					<button id="map-restart-selection-close" class="map-info-close" type="button" aria-label="Tutup pilihan ulangi">&times;</button>
+					<p class="map-restart-kicker">PILIH PROGRES</p>
+					<h2 id="map-restart-selection-title">Ulangi bagian mana?</h2>
+					<p>Pilih area yang pintunya sudah terbuka, atau ulangi semua progres dari awal.</p>
+					<div class="map-restart-area-actions">
+						<button class="map-restart-area-button" data-restart-area="sungai" type="button">ULANGI SUNGAI</button>
+						<button class="map-restart-area-button" data-restart-area="hutan" type="button">ULANGI HUTAN</button>
+						<button class="map-restart-area-button" data-restart-area="desa" type="button">ULANGI DESA</button>
+						<button class="map-restart-all-button" data-restart-area="all" type="button">ULANGI SEMUA PROGRES</button>
+					</div>
+				</div>
+			</section>
+			<section id="map-grade-panel" class="map-grade-panel" aria-labelledby="map-grade-title" hidden>
+				<div class="map-info-card map-grade-card">
+					<button id="map-grade-close" class="map-info-close" type="button" aria-label="Tutup grade">&times;</button>
+					<h2 id="map-grade-title">GRADE AKHIR</h2>
+					<p id="map-grade-result">Selesaikan semua area terlebih dahulu.</p>
+				</div>
+			</section>
+			<section id="map-info-panel" class="map-info-panel" aria-labelledby="map-info-title" hidden>
+				<div class="map-info-card">
+					<button id="map-info-close" class="map-info-close" type="button" aria-label="Tutup cara bermain">&times;</button>
+					<h2 id="map-info-title">CARA BERMAIN</h2>
+					<p>Selesaikan area secara berurutan: <strong>Sungai → Hutan → Desa</strong>. Pintu berikutnya baru terbuka setelah kamu menyelesaikan pintu sebelumnya.</p>
+					<p>Skor dari ketiga area akan ditampilkan di peta dan rata-ratanya menentukan grade akhir.</p>
+					<h3>INTERAKSI PINTU</h3>
+					<p>Dekati pintu<br>Tekan E atau klik pintu<br>Masuk ke mini-game!</p>
+				</div>
+			</section>
+			<p class="map-interaction-hint" aria-live="polite"></p>
+		</section>
+
+		<section class="river-scene" aria-label="Area sungai" aria-hidden="true" hidden>
+			<div class="river-scene-shell">
+				<video class="river-background river-background-dirty" src="assets/images/river/background/sungai_kotor_video.mp4" autoplay loop muted playsinline aria-label="Area sungai kotor"></video>
+				<video class="river-background river-background-clean" src="assets/images/river/background/sungai_bersih_video.mp4" loop muted playsinline aria-label="Area sungai bersih"></video>
+				<div class="river-hit-flash" aria-hidden="true"></div>
+				<button id="river-back-button" class="river-back-button" type="button">&lt;&lt; KEMBALI</button>
+				<div class="river-top-actions">
+					<button id="river-collection-button" class="river-collection-button" type="button">KOLEKSI</button>
+					<button id="river-tutorial-button" class="river-tutorial-button" type="button">TUTORIAL</button>
+					<button id="river-settings-button" class="river-settings-button" type="button">PENGATURAN</button>
+				</div>
+				<section id="river-settings-panel" class="river-settings-panel" aria-label="Pengaturan suara" hidden>
+					<h2>PENGATURAN</h2>
+					<label for="river-bgm-volume">VOLUME MUSIK LATAR <output id="river-bgm-volume-value">30%</output></label>
+					<input id="river-bgm-volume" type="range" min="0" max="1" step="0.01" value="0.3">
+					<label for="river-sfx-volume">VOLUME EFEK SUARA <output id="river-sfx-volume-value">100%</output></label>
+					<input id="river-sfx-volume" type="range" min="0" max="1" step="0.01" value="1">
+					<button id="river-bgm-toggle" type="button">MUTE MUSIK LATAR</button>
+					<button id="river-sfx-toggle" type="button">MUTE EFEK SUARA</button>
+					<button id="river-settings-close" type="button">TUTUP</button>
+				</section>
+				<div class="river-hud" aria-live="polite">
+					<div class="river-score-box">
+						<span>SKOR</span>
+						<strong id="river-score">100</strong>
+					</div>
+					<div class="river-timer-box">
+						<span>WAKTU</span>
+						<strong id="river-timer">01:00</strong>
+					</div>
+					<div id="river-powerup-status" class="river-powerup-status" aria-live="polite"></div>
+				</div>
+				<div class="river-game-area" aria-label="Permainan sungai">
+					<img id="river-boat" class="river-boat" src="assets/images/river/boat/reyna_boat_01.png" alt="Rayna naik perahu">
+				</div>
+				<div class="river-intro" aria-live="polite">
+					<div class="river-dialogue-character">
+						<img src="assets/images/characters/rayna_happy.png" alt="Rayna bahagia">
+					</div>
+					<div class="river-dialogue-box">
+						<div class="river-dialogue-copy">
+							<p id="river-intro-text"></p>
+							<div class="river-dialogue-actions">
+								<button id="river-intro-back" type="button" disabled>
+									<span aria-hidden="true">&lt;&lt;</span>
+									<span>KEMBALI</span>
+								</button>
+								<button id="river-intro-next" type="button">
+									<span>LANJUT</span>
+									<span class="next-chevron" aria-hidden="true">&gt;&gt;</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<section id="river-tutorial-panel" class="river-tutorial-panel" aria-labelledby="river-tutorial-title" hidden>
+						<div class="river-tutorial-card">
+							<div class="river-tutorial-heading">
+								<span class="river-tutorial-kicker">CATATAN LINGKUNGAN RAYNA</span>
+								<h2 id="river-tutorial-title">Misi Membersihkan Sungai</h2>
+								<p>Capai <strong>800 skor</strong>. Sungai berubah bersih mulai <strong>500 skor</strong>.</p>
+							</div>
+							<div class="river-tutorial-section river-controls-section">
+								<h3><span>00</span> Gerakkan perahu</h3>
+								<div class="river-controls-guide">
+									<div class="river-arrow-keys" aria-label="Kontrol arah perahu">
+										<span class="river-key river-key-up">&uarr;</span>
+										<span class="river-key">&larr;</span>
+										<span class="river-key">&darr;</span>
+										<span class="river-key">&rarr;</span>
+									</div>
+									<p>Gunakan tombol panah untuk menggerakkan Rayna ke kiri, kanan, atas, dan bawah. Perahu akan mundur perlahan saat tidak diberi arah.</p>
+								</div>
+							</div>
+							<div class="river-tutorial-section">
+								<h3><span>01</span> Tangkap sampah</h3>
+								<div class="river-guide-grid river-trash-guide">
+									<div class="river-guide-item"><img src="assets/images/river/trash/plastikk.png" alt="Sampah plastik"><strong>+10</strong><span>Plastik</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/trash/gelas.png" alt="Sampah gelas"><strong>+15</strong><span>Gelas</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/trash/botol.png" alt="Sampah botol"><strong>+20</strong><span>Botol</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/trash/kaleng.png" alt="Sampah kaleng"><strong>+30</strong><span>Kaleng</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/trash/botol1.png" alt="Sampah botol besar"><strong>+40</strong><span>Botol besar</span></div>
+								</div>
+							</div>
+							<div class="river-tutorial-section">
+								<h3><span>02</span> Hindari rintangan</h3>
+								<div class="river-guide-grid river-obstacle-guide">
+									<div class="river-guide-item"><img src="assets/images/river/obstacles/batu.png" alt="Batu"><span>Batu</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/obstacles/tumpahan_minyak.png" alt="Tumpahan minyak"><span>Tumpahan minyak</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/obstacles/akar_mati.png" alt="Akar mati"><span>Akar mati</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/obstacles/duri_kayu.png" alt="Duri kayu"><span>Duri kayu</span></div>
+								</div>
+							</div>
+							<div class="river-tutorial-section">
+								<h3><span>03</span> Power-up bantuan</h3>
+								<div class="river-guide-grid river-powerup-guide">
+									<div class="river-guide-item"><img src="assets/images/river/PowerUp/magnet.png" alt="Power-up magnet"><strong>MAGNET</strong><span>Menarik sampah di sekitar perahu selama 10 detik</span></div>
+									<div class="river-guide-item"><img src="assets/images/river/PowerUp/sepatu_super.png" alt="Power-up sepatu super"><strong>SEPATU SUPER</strong><span>Mempercepat gerak perahu selama 10 detik</span></div>
+								</div>
+							</div>
+							<div class="river-tutorial-actions">
+								<button id="river-tutorial-close" type="button">TUTUP</button>
+								<button id="river-tutorial-start" type="button">MULAI TANTANGAN</button>
+							</div>
+						</div>
+					</section>
+				</div>
+				<section id="river-collection-panel" class="river-collection-panel" aria-labelledby="river-collection-title" hidden>
+					<div class="river-collection-card" role="dialog" aria-modal="true" aria-labelledby="river-collection-title">
+						<div class="river-modal-heading"><div><span>RAYNA'S FIELD GUIDE</span><h2 id="river-collection-title">Koleksi Sampah</h2></div><strong id="river-collection-progress">Koleksi 0/5</strong></div>
+						<p class="river-modal-description">Temukan setiap jenis sampah. Klik koleksi yang sudah ditemukan untuk membaca informasinya lagi.</p>
+						<div id="river-collection-grid" class="river-collection-grid"></div>
+						<button id="river-collection-close" class="river-modal-close" type="button">TUTUP</button>
+					</div>
+				</section>
+				<section id="river-education-panel" class="river-education-panel" aria-labelledby="river-education-title" hidden>
+					<div class="river-education-card" role="dialog" aria-modal="true" aria-labelledby="river-education-title">
+						<img id="river-education-image" src="assets/images/river/trash/botol.png" alt="">
+						<div><span class="river-education-kicker">INFO SAMPAH</span><h2 id="river-education-title"></h2><p id="river-education-text"></p><button id="river-education-close" class="river-modal-close" type="button">LANJUTKAN</button></div>
+					</div>
+				</section>
+				<section id="river-restart-confirmation" class="river-restart-confirmation" aria-labelledby="river-restart-title" hidden>
+					<div class="river-restart-card" role="dialog" aria-modal="true" aria-labelledby="river-restart-title">
+						<span class="river-education-kicker">KONFIRMASI</span>
+						<h2 id="river-restart-title">Mulai kembali dari awal?</h2>
+						<p>Apakah kamu yakin ingin memulai kembali dari awal? Semua koleksi yang sudah terkumpul akan terhapus.</p>
+						<div class="river-restart-actions">
+							<button id="river-restart-no" type="button">TIDAK</button>
+							<button id="river-restart-yes" type="button">YA</button>
+						</div>
+					</div>
+				</section>
+				<section id="river-hutan-confirmation" class="river-restart-confirmation" aria-labelledby="river-hutan-confirmation-title" hidden>
+					<div class="river-restart-card" role="dialog" aria-modal="true" aria-labelledby="river-hutan-confirmation-title">
+						<span class="river-education-kicker">LANJUTKAN PERJALANAN</span>
+						<h2 id="river-hutan-confirmation-title">Apakah kamu mau langsung ke area hutan?</h2>
+						<div class="river-restart-actions river-hutan-confirmation-actions">
+							<button id="river-hutan-map" type="button">KEMBALI KE MAP DESA</button>
+							<button id="river-hutan-go" type="button">MENUJU HUTAN</button>
+						</div>
+					</div>
+				</section>
+				<div class="river-result-screen" hidden>
+					<video class="river-result-bg" src="assets/images/river/background/sungai_kotor_video.mp4" loop muted playsinline aria-label="Hasil akhir sungai"></video>
+					<div class="river-result-character">
+						<img id="river-result-rayna" class="river-result-rayna" src="assets/images/characters/rayna_sad.png" alt="Rayna">
+					</div>
+					<div class="river-result-dialogue-box">
+						<p id="river-result-dialog">Sungai masih kotor, tapi kamu sudah berusaha. Ayo ulangi dan capai sungai yang bersih!</p>
+						<div class="river-result-actions">
+							<button id="river-result-back-button" type="button">KEMBALI</button>
+							<button id="river-next-button" type="button">LANJUT</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="forest-scene" aria-label="Area hutan" aria-hidden="true" hidden>
+			<div class="forest-shell">
+				<div class="forest-hit-flash" aria-hidden="true"></div>
+				<img class="forest-background" src="assets/images/forest/background/forest_damaged.png" alt="Hutan yang rusak">
+				<div class="forest-exploration">
+					<div class="forest-objects" aria-label="Benda-benda di hutan">
+						<button class="forest-object" data-object="gergaji" style="left:7.2%;top:68%" type="button" aria-label="Benda hutan"><img src="assets/images/forest/investigation/evidence/gergaji.png" alt=""></button>
+						<button class="forest-object" data-object="patok" style="left:89.5%;top:57%" type="button" aria-label="Benda hutan"><img src="assets/images/forest/investigation/evidence/patok.png" alt=""></button>
+						<button class="forest-object" data-object="bibit_layu" style="left:79.5%;top:53%" type="button" aria-label="Benda hutan"><img src="assets/images/forest/investigation/evidence/bibit_layu.png" alt=""></button>
+						<button class="forest-object" data-object="pohon_tumbang" style="left:56%;top:32%" type="button" aria-label="Benda hutan"><img src="assets/images/forest/investigation/decoy/pohon_tumbang.png" alt=""></button>
+						<button class="forest-object" data-object="tunggul_lama" style="left:12.2%;top:46%" type="button" aria-label="Benda hutan"><img src="assets/images/forest/investigation/decoy/tunggul_lama.png" alt=""></button>
+						<button class="forest-object" data-object="tanaman_sehat" style="left:24%;top:70%" type="button" aria-label="Benda hutan"><img src="assets/images/forest/investigation/decoy/tanaman_sehat.png" alt=""></button>
+						<button class="forest-object" data-object="tumpukan_tanah" style="left:35%;top:52%" type="button" aria-label="Benda hutan"><img src="assets/images/forest/investigation/decoy/tumpukan_tanah.png" alt=""></button>
+					</div>
+					<img id="forest-rayna" class="forest-rayna" src="assets/images/characters/rayna_walk_front_1.png" alt="Rayna berjalan">
+				</div>
+				<div id="forest-recovery-board" class="forest-recovery-board" hidden>
+					<div class="forest-recovery-zones">
+						<button class="forest-recovery-zone" data-zone="open" type="button"><strong>AREA TERBUKA</strong></button>
+						<button class="forest-recovery-zone" data-zone="shade" type="button"><strong>AREA TEDUH</strong></button>
+						<button class="forest-recovery-zone" data-zone="dry" type="button"><strong>AREA TANAH KERING</strong></button>
+					</div>
+					<div class="forest-seed-palette" aria-label="Pilihan tanaman">
+						<button class="forest-seed" data-seed="pohon_pelindung" type="button"><img src="assets/images/forest/seeds/pohon_pelindung.png" alt="Pohon pelindung"><span>Pohon pelindung</span></button>
+						<button class="forest-seed" data-seed="kopi" type="button"><img src="assets/images/forest/seeds/kopi.png" alt="Kopi"><span>Kopi</span></button>
+						<button class="forest-seed" data-seed="kakao" type="button"><img src="assets/images/forest/seeds/kakao.png" alt="Kakao"><span>Kakao</span></button>
+					</div>
+				</div>
+				<div class="forest-hud"><div class="forest-score-box"><span>SKOR</span><strong id="forest-score">0</strong></div><div class="forest-investigation-timer" role="timer" aria-label="Waktu investigasi"><span>WAKTU</span><strong id="forest-investigation-timer">03:00</strong></div><button id="forest-journal-button" type="button">JURNAL INVESTIGASI</button><button id="forest-info-button" type="button" aria-label="Informasi hutan">&#9432;</button><button id="forest-settings-button" type="button" aria-label="Buka pengaturan">&#9881;</button></div>
+				<button id="forest-inspect-button" class="forest-inspect-button" type="button" hidden>🔍 PERIKSA</button>
+				<button id="forest-back-button" class="forest-back-button" type="button">&lt;&lt; KEMBALI</button>
+				<button id="forest-stage2-button" class="forest-stage2-button" type="button" hidden>LANJUT &gt;&gt;</button>
+				<section id="forest-settings-panel" class="forest-overlay forest-modal-layer" aria-labelledby="forest-settings-title" hidden><div class="forest-modal forest-settings-modal"><button id="forest-settings-close" class="forest-modal-close" type="button" aria-label="Tutup pengaturan">&times;</button><h2 id="forest-settings-title">PENGATURAN</h2><label for="forest-bgm-volume">VOLUME MUSIK LATAR <output id="forest-bgm-volume-value">30%</output></label><input id="forest-bgm-volume" type="range" min="0" max="1" step="0.01" value="0.3"><label for="forest-sfx-volume">VOLUME EFEK SUARA <output id="forest-sfx-volume-value">100%</output></label><input id="forest-sfx-volume" type="range" min="0" max="1" step="0.01" value="1"><button id="forest-bgm-toggle" type="button">MUTE MUSIK LATAR</button><button id="forest-sfx-toggle" type="button">MUTE EFEK SUARA</button></div></section>
+				<p id="forest-interaction-hint" class="forest-interaction-hint" aria-live="polite"></p>
+			</div>
+			<section id="forest-intro" class="forest-overlay forest-intro" aria-live="polite"><div class="forest-dialogue-character"><img src="assets/images/characters/rayna_sad.png" alt="Rayna sedih"></div><div class="forest-dialogue-box"><p id="forest-intro-text"></p><div class="forest-dialogue-actions"><button id="forest-intro-back" type="button" disabled>&lt;&lt; KEMBALI</button><button id="forest-intro-next" type="button">LANJUT &gt;&gt;</button></div></div></section>
+			<section id="forest-guide-panel" class="forest-overlay forest-modal-layer" aria-labelledby="forest-guide-title" hidden><div class="forest-modal forest-guide-modal"><h2 id="forest-guide-title">PANDUAN INVESTIGASI</h2><h3>Tujuan</h3><p>Cari tahu apa yang menyebabkan hutan ini mengalami kerusakan.</p><h3>Cara bermain</h3><ol><li>Dekati benda yang ingin diperiksa.</li><li>Saat berada dekat benda yang dapat diperiksa, tombol 🔍 PERIKSA akan muncul.</li><li>Tekan PERIKSA untuk mengamati benda tersebut.</li><li>Tentukan apakah benda tersebut perlu dicatat sebagai bukti atau bukan.</li><li>Temukan dan catat 3 bukti utama dalam waktu 3 menit.</li></ol><h3>Catatan</h3><p>Tidak semua benda yang kamu temukan berkaitan dengan kerusakan hutan. Periksa dengan teliti sebelum mengambil kesimpulan.</p><button id="forest-start-button" type="button">MULAI INVESTIGASI</button></div></section>
+			<section id="forest-observation-panel" class="forest-overlay forest-modal-layer" aria-labelledby="forest-observation-title" hidden><div class="forest-modal forest-observation-modal"><div class="forest-observation-visual"><span class="forest-observation-badge">TEMUAN BARU</span><img id="forest-observation-image" src="" alt=""></div><div class="forest-observation-copy"><span class="forest-kicker">HASIL PENGAMATAN</span><h2 id="forest-observation-title"></h2><div class="forest-observation-section"><h3>Hasil Pengamatan</h3><p id="forest-observation-result"></p></div><div class="forest-observation-section"><h3>Informasi</h3><p id="forest-observation-info"></p></div></div><div class="forest-choice-actions"><p class="forest-choice-label">Apakah temuan ini merupakan bukti kerusakan hutan?</p><button id="forest-evidence-button" type="button"><span aria-hidden="true">✓</span> CATAT SEBAGAI BUKTI</button><button id="forest-not-evidence-button" type="button"><span aria-hidden="true">○</span> BUKAN BUKTI</button></div></div></section>
+			<section id="forest-feedback-panel" class="forest-overlay forest-modal-layer" aria-labelledby="forest-feedback-title" hidden><div class="forest-modal forest-feedback-modal"><span id="forest-feedback-icon" class="forest-feedback-icon"></span><span class="forest-feedback-kicker">HASIL KEPUTUSAN</span><h2 id="forest-feedback-title"></h2><p id="forest-feedback-text"></p><strong id="forest-feedback-score"></strong><button id="forest-feedback-close" type="button">LANJUTKAN INVESTIGASI</button></div></section>
+			<section id="forest-journal-panel" class="forest-overlay forest-modal-layer" aria-labelledby="forest-journal-title" hidden><div class="forest-modal forest-journal-modal"><button id="forest-journal-close" class="forest-modal-close" type="button">&times;</button><span class="forest-kicker">CATATAN PENYELIDIKAN</span><h2 id="forest-journal-title">JURNAL INVESTIGASI</h2><section class="forest-journal-group forest-journal-evidence"><h3><span aria-hidden="true">✓</span> BUKTI KERUSAKAN HUTAN</h3><ul id="forest-journal-evidence-list"></ul></section><section class="forest-journal-group forest-journal-non-evidence"><h3><span aria-hidden="true">○</span> BUKAN BUKTI</h3><ul id="forest-journal-non-evidence-list"></ul></section><div id="forest-journal-detail" class="forest-journal-detail" hidden></div></div></section>
+			<section id="forest-info-panel" class="forest-overlay forest-modal-layer" aria-labelledby="forest-info-title" hidden><div class="forest-modal forest-info-modal"><button id="forest-info-close" class="forest-modal-close" type="button" aria-label="Tutup informasi hutan">&times;</button><span class="forest-kicker">CATATAN LINGKUNGAN</span><h2 id="forest-info-title">BUKTI KERUSAKAN HUTAN</h2><p id="forest-info-message"></p><video id="forest-evidence-video" class="forest-evidence-video" controls playsinline preload="metadata" hidden></video></div></section>
+			<section id="forest-recovery-dialog" class="forest-overlay forest-intro forest-recovery-dialog" aria-live="polite" hidden><div class="forest-dialogue-character"><img id="forest-recovery-character" src="assets/images/characters/rayna_sad.png" alt="Rayna"></div><div class="forest-dialogue-box"><p id="forest-recovery-dialogue-text"></p><div class="forest-dialogue-actions"><button id="forest-recovery-back" type="button" disabled>&lt;&lt; KEMBALI</button><button id="forest-recovery-next" type="button">LANJUT &gt;&gt;</button></div></div></section>
+			<section id="forest-recovery-guide" class="forest-overlay forest-modal-layer" aria-labelledby="forest-recovery-guide-title" hidden><div class="forest-modal forest-recovery-guide-modal"><h2 id="forest-recovery-guide-title">PANDUAN PEMULIHAN HUTAN</h2><h3>Tujuan</h3><p>Bantu memulihkan hutan dengan menempatkan tanaman yang sesuai dengan kondisi setiap area.</p><h3>KENALI 3 KONDISI AREA</h3><p><strong>1. AREA TERBUKA</strong><br>Area yang mendapat banyak cahaya matahari langsung dan memiliki ruang terbuka yang luas.</p><p><strong>2. AREA TEDUH</strong><br>Area yang terlindung dari cahaya matahari langsung.</p><p><strong>3. AREA TANAH KERING</strong><br>Area dengan tanah yang terlihat kering, terbuka, dan memiliki sedikit tumbuhan. Perlu dipulihkan dengan tanaman yang membantu mengembalikan vegetasi.</p><h3>CARA BERMAIN</h3><ol><li>Amati kondisi dari ketiga area yang tersedia.</li><li>Pilih tanaman yang paling sesuai dengan kondisi area.</li><li>Masukkan tanaman ke dalam kotak area yang tepat.</li><li>Penempatan yang benar menambah +100 poin.</li><li>Penempatan yang salah mengurangi 50 poin.</li></ol><h3>CATATAN</h3><p>Perhatikan kondisi setiap area sebelum memilih tanaman.</p><button id="forest-recovery-start" type="button">MULAI PEMULIHAN</button></div></section>
+			<section id="forest-investigation-replay" class="forest-overlay forest-modal-layer" aria-labelledby="forest-investigation-replay-title" hidden><div class="forest-modal forest-replay-modal"><button id="forest-investigation-replay-close" class="forest-modal-close" type="button" aria-label="Tutup pilihan investigasi">&times;</button><span class="forest-kicker">INVESTIGASI SELESAI</span><h2 id="forest-investigation-replay-title">Mulai ulang investigasi hutan?</h2><p>Investigasi hutan sudah selesai. Kamu bisa mengulang investigasi atau langsung melanjutkan ke pengelompokan tanaman.</p><div class="forest-replay-actions"><button id="forest-investigation-replay-yes" type="button">MULAI ULANG INVESTIGASI</button><button id="forest-investigation-replay-no" type="button">LANJUT KE PENGELOMPOKAN</button></div></div></section>
+			<section id="forest-recovery-replay" class="forest-overlay forest-modal-layer" aria-labelledby="forest-recovery-replay-title" hidden><div class="forest-modal forest-replay-modal"><button id="forest-recovery-replay-close" class="forest-modal-close" type="button" aria-label="Tutup pilihan pengelompokan">&times;</button><span class="forest-kicker">PEMULIHAN SELESAI</span><h2 id="forest-recovery-replay-title">Mulai ulang pengelompokan?</h2><p>Pengelompokan tanaman sudah selesai. Tekan mulai ulang jika ingin mengulang pengelompokan.</p><div class="forest-replay-actions"><button id="forest-recovery-replay-yes" type="button">MULAI ULANG</button></div></div></section>
+			<section id="forest-recovery-result" class="forest-overlay forest-intro forest-recovery-result" aria-live="polite" hidden><div class="forest-dialogue-character"><img src="assets/images/characters/rayna_happy.png" alt="Rayna bahagia"></div><div class="forest-dialogue-box"><p id="forest-recovery-result-text"></p><div class="forest-dialogue-actions"><button id="forest-recovery-result-back" type="button" disabled>&lt;&lt; KEMBALI</button><button id="forest-recovery-result-next" type="button">LANJUT &gt;&gt;</button></div></div></section>
+			<section id="forest-village-choice" class="forest-overlay forest-modal-layer" aria-labelledby="forest-village-choice-title" hidden><div class="forest-modal forest-journey-choice-modal"><span class="forest-kicker">LANJUTKAN PERJALANAN</span><h2 id="forest-village-choice-title">Apakah kamu mau langsung menuju area desa?</h2><div class="forest-choice-actions"><button id="forest-village-map" type="button">KEMBALI KE MAP DESA</button><button id="forest-village-go" type="button">MENUJU DESA</button></div></div></section>
+		</section>
+		<section class="village-scene" aria-label="Area desa" aria-hidden="true" hidden>
+			<div class="village-shell">
+				<video id="village-opening-video" class="village-opening-video" src="assets/images/village/background/video_awal_desa.mp4" playsinline preload="auto" aria-label="Cuplikan desa"></video>
+				<button id="village-skip-video" class="village-skip-video" type="button">LEWATI</button>
+				<div id="village-dialogue" class="village-dialogue" aria-live="polite" hidden><div class="village-dialogue-character"><img src="assets/images/characters/rayna_sad.png" alt="Rayna sedih"></div><div class="village-dialogue-box"><p id="village-dialogue-text"></p><div class="village-dialogue-actions"><button id="village-dialogue-back" type="button" disabled>&lt;&lt; KEMBALI</button><button id="village-dialogue-next" type="button">LANJUT &gt;&gt;</button></div></div></div>
+				<section id="village-replay-panel" class="village-overlay village-modal-layer" aria-labelledby="village-replay-title" hidden><div class="village-modal village-replay-modal"><button id="village-replay-close" class="village-modal-close" type="button" aria-label="Tutup pilihan ulangi desa">&times;</button><span class="village-replay-kicker">LANJUTKAN PERJALANAN</span><h2 id="village-replay-title">Mau mengulang permainan desa?</h2><p>Progres puzzle desa bisa diulang dari awal. Kalau tidak diulang, kamu tetap bisa melanjutkan ke kuis dan halaman puzzle.</p><div class="village-replay-actions"><button id="village-replay-reset" type="button">MULAI ULANG DESA</button></div></div></section>
+				<section id="village-exploration" class="village-exploration" aria-label="Eksplorasi desa" hidden>
+					<div class="village-npc-layer" aria-label="Warga desa">
+						<button class="village-npc village-npc-gina" data-npc="gina" type="button" aria-label="Ajak bicara Bu Gina"><img src="assets/images/characters/bu_gina_walk_left_1.png" alt="Bu Gina"><span class="village-npc-name">BU GINA</span></button>
+						<button class="village-npc village-npc-budi" data-npc="budi" type="button" aria-label="Ajak bicara Pak Budi"><img src="assets/images/characters/pak_budi_walk_right_1.png" alt="Pak Budi"><span class="village-npc-name">PAK BUDI</span></button>
+						<button class="village-npc village-npc-dina" data-npc="dina" type="button" aria-label="Ajak bicara Dina"><img src="assets/images/characters/dina_walk_left_1.png" alt="Dina"><span class="village-npc-name">DINA</span></button>
+						<button class="village-npc village-npc-rafi" data-npc="rafi" type="button" aria-label="Ajak bicara Rafi"><img src="assets/images/characters/rafi_walk_right_1.png" alt="Rafi"><span class="village-npc-name">RAFI</span></button>
+					</div>
+					<img id="village-rayna" class="village-rayna" src="assets/images/characters/rayna_walk_right_1.png" alt="Rayna berjalan">
+					<p id="village-exploration-hint" class="village-exploration-hint" aria-live="polite">Gunakan tombol kiri/kanan. Dekati warga lalu tekan E atau ENTER.</p>
+					<button id="village-exploration-continue" class="village-exploration-continue" type="button">LANJUT &gt;&gt;</button>
+					<section id="village-npc-dialogue" class="village-npc-dialogue" aria-live="polite" hidden><div class="village-npc-dialogue-character"><img id="village-npc-dialogue-image" src="assets/images/characters/rayna_happy.png" alt="Rayna"></div><div class="village-npc-dialogue-box"><p id="village-npc-dialogue-speaker"></p><p id="village-npc-dialogue-text"></p><div class="village-dialogue-actions"><button id="village-npc-dialogue-back" type="button">&lt;&lt; KEMBALI</button><button id="village-npc-dialogue-next" type="button">LANJUT &gt;&gt;</button></div></div></section>
+					<section id="village-quiz" class="village-overlay village-modal-layer" aria-labelledby="village-quiz-title" hidden><div class="village-modal village-quiz-modal"><p class="village-quiz-kicker">PEMAHAMAN WARGA</p><h2 id="village-quiz-title">Apa yang menyebabkan warga dan anak-anak semakin jarang menggunakan tempat-tempat yang dulu sering digunakan bersama?</h2><div class="village-quiz-options"><button type="button" data-answer="A">A. Warga sudah tidak ingin berkegiatan bersama.</button><button type="button" data-answer="B">B. Anak-anak tidak suka bermain bersama.</button><button type="button" data-answer="C">C. Tempat-tempat tersebut sudah kurang terawat dan tidak nyaman digunakan.</button><button type="button" data-answer="D">D. Desa menjadi terlalu ramai.</button></div><p id="village-quiz-feedback" aria-live="polite"></p></div></section>
+				</section>
+				<section id="village-guide" class="village-overlay village-modal-layer" aria-labelledby="village-guide-title" hidden><div class="village-modal village-guide-modal"><h2 id="village-guide-title">CARA BERMAIN — PEMULIHAN DESA</h2><h3>Tujuan</h3><p>Pulihkan tempat-tempat di desa agar kembali bersih dan nyaman digunakan.</p><h3>Cara Bermain</h3><ol><li>Setelah memahami kondisi desa melalui cerita dan percakapan dengan warga, kamu akan membantu memulihkan tempat-tempat yang kurang terawat.</li><li>Pilih salah satu tempat yang ingin kamu pulihkan.</li><li>Susun potongan gambar hingga menjadi gambar yang utuh.</li><li>Setiap tempat memiliki batas waktu yang berbeda.</li><li>Selesaikan puzzle sebelum waktu habis.</li><li>Jika puzzle berhasil, tempat tersebut akan berubah menjadi lebih bersih dan nyaman.</li><li>Setiap tempat hanya dapat dimainkan satu kali.</li></ol><h3>Catatan</h3><p>Kamu bebas menentukan tempat mana yang ingin dipulihkan terlebih dahulu.</p><button id="village-start-button" type="button">MULAI</button></div></section>
+				<div id="village-game" class="village-game" hidden><button id="village-back-button" class="village-back-button" type="button">&lt;&lt; KEMBALI</button><div class="village-hud"><div class="village-score-box"><span>SKOR</span><strong id="village-score">0</strong></div><button id="village-guide-button" class="village-guide-button" type="button">CARA BERMAIN</button><button id="village-settings-button" class="village-settings-button" type="button" aria-label="Buka pengaturan">&#9881;</button></div><div class="village-place-list"><button class="village-place" data-place="taman" type="button">TAMAN DESA</button><button class="village-place" data-place="berkumpul" type="button">TEMPAT BERKUMPUL</button><button class="village-place" data-place="bermain" type="button">TEMPAT BERMAIN</button></div><p id="village-status" class="village-status" aria-live="polite"></p><section id="village-area-intro" class="village-area-intro" hidden><div class="village-area-intro-character"><img src="assets/images/characters/rayna_happy.png" alt="Rayna memberi semangat"></div><div class="village-area-intro-box"><p id="village-area-intro-text"></p><div class="village-dialogue-actions"><button id="village-area-intro-back" type="button">&lt;&lt; KEMBALI</button><button id="village-area-intro-next" type="button">LANJUT &gt;&gt;</button></div></div></section><section id="village-puzzle" class="village-puzzle" hidden><div class="village-puzzle-heading"><h2 id="village-puzzle-title"></h2><strong>WAKTU <span id="village-puzzle-timer">00:00</span></strong></div><div id="village-puzzle-grid" class="village-puzzle-grid"></div><div id="village-puzzle-points" class="village-puzzle-points" aria-live="polite"></div><button id="village-puzzle-close" type="button">KEMBALI KE PILIHAN TEMPAT</button></section><section id="village-result" class="village-result" hidden><div class="village-result-character"><img id="village-result-rayna" src="assets/images/characters/rayna_sad.png" alt="Rayna"></div><div class="village-result-dialogue-box"><p id="village-result-text"></p><div class="village-dialogue-actions"><button id="village-result-back" type="button" disabled>&lt;&lt; KEMBALI</button><button id="village-result-next" type="button">LANJUT &gt;&gt;</button></div></div></section></div>
+				<section id="village-settings-panel" class="village-settings-panel" hidden><h2>PENGATURAN</h2><label for="village-bgm-volume">VOLUME MUSIK LATAR <output id="village-bgm-volume-value">30%</output></label><input id="village-bgm-volume" type="range" min="0" max="1" step="0.01" value="0.3"><label for="village-sfx-volume">VOLUME EFEK SUARA <output id="village-sfx-volume-value">100%</output></label><input id="village-sfx-volume" type="range" min="0" max="1" step="0.01" value="1"><button id="village-bgm-toggle" type="button">MUTE MUSIK LATAR</button><button id="village-sfx-toggle" type="button">MUTE EFEK SUARA</button><button id="village-settings-close" type="button">TUTUP</button></section>
+			</div>
+		</section>
+	</main>
+	<audio id="forest-bgm" src="assets/audio/bgm/bgm_hutan.mp3" loop preload="auto" aria-label="Musik latar hutan"></audio>
+	<audio id="forest-sfx-success" src="assets/audio/sfx/hasil_baik.mp3" preload="auto" aria-label="Efek suara jawaban benar"></audio>
+	<audio id="forest-sfx-failure" src="assets/audio/sfx/hasil_buruk.mp3" preload="auto" aria-label="Efek suara jawaban salah"></audio>
+	<audio id="village-bgm" src="assets/audio/bgm/bgm_desa.mp3" loop preload="auto" aria-label="Musik latar desa"></audio>
+	<audio
+		id="scene-bgm"
+		src="assets/audio/bgm/bgm_scene_dialog.mp3"
+		autoplay
+		loop
+		preload="auto"
+		aria-label="Musik latar scene dialog"
+	></audio>
+	<audio
+		id="menu-bgm"
+		src="assets/audio/bgm/bgm_main_menu.mp3"
+		loop
+		preload="auto"
+		aria-label="Musik latar menu utama"
+	></audio>
+	<audio
+		id="map-bgm"
+		src="assets/audio/bgm/bgm_map_desa.mp3"
+		loop
+		preload="auto"
+		aria-label="Musik latar peta desa"
+	></audio>
+	<audio
+		id="river-bgm"
+		src="assets/audio/bgm/bgm_sungai.mp3"
+		loop
+		preload="auto"
+		aria-label="Musik latar area sungai"
+	></audio>
+	<audio id="river-sfx-obstacle" src="assets/audio/sfx/rintangan.mp3" preload="auto" aria-label="Efek suara rintangan"></audio>
+	<audio id="river-sfx-trash" src="assets/audio/sfx/sampah.mp3" preload="auto" aria-label="Efek suara sampah"></audio>
+	<audio id="river-sfx-shoe" src="assets/audio/sfx/sepatu.mp3" preload="auto" aria-label="Efek suara sepatu super"></audio>
+	<audio id="river-sfx-magnet" src="assets/audio/sfx/magnet.mp3" preload="auto" aria-label="Efek suara magnet"></audio>
+	<audio id="river-sfx-success" src="assets/audio/sfx/hasil_baik.mp3" preload="auto" aria-label="Efek suara hasil baik"></audio>
+	<audio id="river-sfx-failure" src="assets/audio/sfx/hasil_buruk.mp3" preload="auto" aria-label="Efek suara hasil buruk"></audio>
+	<audio
+		id="typing-sound"
+		src="assets/audio/sfx/typing_sound.mp3"
+		loop
+		preload="auto"
+		aria-label="Efek suara teks sedang diketik"
+	></audio>
+	<audio
+		id="click-sound"
+		src="assets/audio/sfx/click.mp3"
+		preload="auto"
+		aria-label="Efek suara tombol"
+	></audio>
+	<script src="js/audio.js"></script>
+	<script src="js/opening.js"></script>
+	<script src="js/main-menu.js"></script>
+	<script src="js/map.js"></script>
+	<script src="js/river.js"></script>
+	<script src="js/forest.js"></script>
+	<script src="js/village.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+.game-screen button:not(.map-door):not(.forest-object):not(.forest-npc):not(.forest-seed):not(.forest-recovery-zone):not(.village-npc):not(.village-puzzle-tile) {
+	border: 0.1rem solid rgba(239, 244, 124, 0.72);
+	border-radius: 0.9rem 0.55rem 0.9rem 0.55rem;
+	padding: 0.45rem 0.75rem;
+	color: #fff;
+	background: linear-gradient(145deg, #286f43, #17462c);
+	box-shadow: 0 0.24rem 0 rgba(8, 28, 13, 0.35), inset 0 0 0 0.06rem rgba(255, 255, 255, 0.08);
+	font: inherit;
+	font-size: clamp(0.62rem, 0.9vw, 0.8rem);
+	cursor: pointer;
+	transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.game-screen button:not(.map-door):not(.forest-object):not(.forest-npc):not(.forest-seed):not(.forest-recovery-zone):not(.village-npc):not(.village-puzzle-tile):hover,
+.game-screen button:not(.map-door):not(.forest-object):not(.forest-npc):not(.forest-seed):not(.forest-recovery-zone):not(.village-npc):not(.village-puzzle-tile):focus-visible {
+	filter: brightness(1.14) saturate(1.05);
+	transform: translateY(-0.12rem);
+	box-shadow: 0 0.36rem 0 rgba(8, 28, 13, 0.35), inset 0 0 0 0.06rem rgba(255, 255, 255, 0.12);
+}
+
+.game-screen button:not(.map-door):not(.forest-object):not(.forest-npc):not(.forest-seed):not(.forest-recovery-zone):not(.village-npc):not(.village-puzzle-tile):focus-visible {
+	outline: 0.14rem solid #f4d35e;
+	outline-offset: 0.16rem;
+}
+
+.game-screen button:not(.map-door):not(.forest-object):not(.forest-npc):not(.forest-seed):not(.forest-recovery-zone):not(.village-npc):not(.village-puzzle-tile):disabled {
+	filter: grayscale(0.35);
+	cursor: not-allowed;
+	opacity: 0.58;
+	transform: none;
+	box-shadow: none;
+}
+
+.game-screen .map-settings-button,
+.game-screen .forest-hud button:nth-of-type(2),
+.game-screen .forest-hud button:last-of-type,
+.game-screen .village-settings-button,
+.game-screen .panel-close-button,
+.game-screen .map-info-close,
+.game-screen .forest-modal-close,
+.game-screen .village-modal-close {
+	border-radius: 50%;
+}
+
+.game-screen .main-menu-actions button {
+	border-radius: 0.9rem 0.55rem 0.9rem 0.55rem;
+	padding: 0.75rem 1.25rem;
+	font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+.game-screen .map-settings-button,
+.game-screen .forest-hud button:nth-of-type(2),
+.game-screen .forest-hud button:last-of-type,
+.game-screen .village-settings-button,
+.game-screen .panel-close-button,
+.game-screen .map-info-close,
+.game-screen .forest-modal-close,
+.game-screen .village-modal-close {
+	padding: 0;
+}
+
+.game-screen .map-settings-button,
+.game-screen .map-status-icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	border-radius: 50% !important;
+	font-size: 1.4rem !important;
+}
+
+.game-screen .map-settings-button span,
+.game-screen .map-status-icon span {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, sans-serif;
+	line-height: 0;
+	transform: translateY(0.04em);
+}
+
+.game-screen .map-icon {
+	display: block !important;
+	width: 1.3rem !important;
+	height: 1.3rem !important;
+	transform: none !important;
+}
+
+.game-screen .forest-choice-actions button:first-of-type,
+.game-screen .forest-journey-choice-modal .forest-choice-actions button:last-child,
+.game-screen .forest-replay-actions button:last-child,
+.game-screen .map-restart-actions button:last-child,
+.game-screen .map-restart-area-actions .map-restart-all-button,
+.game-screen .river-restart-actions button:last-child,
+.game-screen .river-hutan-confirmation-actions button:last-child,
+.game-screen .village-replay-actions button,
+.game-screen .village-puzzle-preview {
+	border-color: #e6c766;
+	color: #17301a;
+	background: linear-gradient(145deg, #f7df84, #d4af43);
+}
+
+.game-screen .forest-choice-actions button:first-of-type:hover,
+.game-screen .forest-journey-choice-modal .forest-choice-actions button:last-child:hover,
+.game-screen .forest-replay-actions button:last-child:hover,
+.game-screen .map-restart-actions button:last-child:hover,
+.game-screen .map-restart-area-actions .map-restart-all-button:hover,
+.game-screen .river-restart-actions button:last-child:hover,
+.game-screen .river-hutan-confirmation-actions button:last-child:hover,
+.game-screen .village-replay-actions button:hover,
+.game-screen .village-puzzle-preview:hover {
+	filter: brightness(1.08);
+}
+
+.game-screen .village-puzzle-preview:disabled {
+	color: #d8eeb5;
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.game-screen .forest-choice-actions button:last-child,
+.game-screen .forest-journal-modal li button,
+.game-screen .map-restart-area-actions button,
+.game-screen .river-settings-panel button,
+.game-screen .village-settings-panel button {
+	background: linear-gradient(145deg, rgba(36, 101, 57, 0.96), rgba(18, 61, 37, 0.96));
+}
+
+.game-screen .village-puzzle-preview-card button {
+	border-radius: 999px;
+}
+
+@media (max-width: 650px) {
+	.game-screen button:not(.map-door):not(.forest-object):not(.forest-npc):not(.forest-seed):not(.forest-recovery-zone):not(.village-npc):not(.village-puzzle-tile) {
+		border-radius: 0.75rem 0.45rem 0.75rem 0.45rem;
+	}
+}

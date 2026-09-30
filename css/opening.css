@@ -1,0 +1,261 @@
+:root {
+	font-family: Arial, sans-serif;
+	color: #151515;
+	background: #101510;
+	--dialogue-font-size: clamp(1rem, 2.1vw, 2rem);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+body {
+	display: grid;
+	min-height: 100%;
+	place-items: center;
+}
+
+.game-screen {
+	position: relative;
+	width: min(100vw, 177.78vh);
+	height: min(100vh, 56.25vw);
+	overflow: hidden;
+}
+
+.opening-scene {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	isolation: isolate;
+	background: #273c2b;
+}
+
+.scene-background {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.scene-background-green {
+	opacity: 0;
+	transition: opacity 4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.opening-scene.thought-mode .scene-background-green {
+	opacity: 1;
+}
+
+.opening-scene::after {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: rgba(218, 244, 220, 0.16);
+	content: '';
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.opening-scene.thought-mode::after {
+	opacity: 1;
+}
+
+.opening-scene.scene-ending {
+	animation: scene-fade-out 1.6s ease-in forwards;
+	pointer-events: none;
+}
+
+@keyframes scene-fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+.sound-button {
+	position: absolute;
+	top: 3%;
+	left: 3%;
+	z-index: 3;
+	display: inline-flex;
+	gap: 0.35rem;
+	align-items: center;
+	padding: 0.45rem 0.75rem;
+	border: 0.14rem solid #122916;
+	border-radius: 999px;
+	color: #fff;
+	background: rgba(25, 75, 38, 0.9);
+	font: inherit;
+	font-size: clamp(0.65rem, 1vw, 0.85rem);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.sound-button:hover,
+.sound-button:focus-visible {
+	background: #2f7d45;
+}
+
+.sound-button:focus-visible {
+	outline: 0.2rem solid #f4d35e;
+	outline-offset: 0.2rem;
+}
+
+.skip-opening-button {
+	position: absolute;
+	top: 3%;
+	right: 3%;
+	z-index: 3;
+	padding: 0.45rem 0.85rem;
+	border: 0.14rem solid #122916;
+	border-radius: 999px;
+	color: #fff;
+	background: rgba(25, 75, 38, 0.9);
+	font: inherit;
+	font-size: clamp(0.65rem, 1vw, 0.85rem);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.skip-opening-button:hover,
+.skip-opening-button:focus-visible {
+	background: #2f7d45;
+}
+
+.skip-opening-button:focus-visible {
+	outline: 0.2rem solid #f4d35e;
+	outline-offset: 0.2rem;
+}
+
+.rayna-area {
+	position: absolute;
+	right: -1.5%;
+	bottom: -3%;
+	z-index: 1;
+	width: 33%;
+	height: 82%;
+	pointer-events: none;
+}
+
+.rayna {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: right bottom;
+	animation: rayna-fade-in 2.4s ease-out both;
+}
+
+@keyframes rayna-fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.dialogue-box {
+	position: absolute;
+	right: 24%;
+	bottom: 7%;
+	left: 4%;
+	z-index: 2;
+	min-height: 24%;
+	padding: 2.2% 14% 2.2% 3.5%;
+	border: 0.25rem solid #141414;
+	border-radius: 2rem;
+	background: #fff;
+	box-shadow: 0.35rem 0.45rem 0 rgba(0, 0, 0, 0.25);
+	transition: background-color 1.2s ease-in-out, border-color 1.2s ease-in-out;
+}
+
+.thought-mode .dialogue-box {
+	border-color: #47734d;
+	background: rgba(255, 255, 255, 0.92);
+}
+
+.dialogue-box p {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	font-size: var(--dialogue-font-size);
+	line-height: 1.35;
+}
+
+.dialogue-actions {
+	position: absolute;
+	right: 2.5%;
+	bottom: 9%;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.dialogue-actions button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	min-width: 6.5rem;
+	padding: 0.45rem 0.75rem;
+	border: 0.14rem solid #122916;
+	border-radius: 999px;
+	color: #fff;
+	background: #3d9a58;
+	font: inherit;
+	font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.dialogue-actions button:hover:not(:disabled),
+.dialogue-actions button:focus-visible {
+	background: #2f7d45;
+}
+
+.dialogue-actions button:focus-visible {
+	outline: 0.2rem solid #f4d35e;
+	outline-offset: 0.2rem;
+}
+
+.dialogue-actions button:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.back-chevron,
+.next-chevron {
+	font-size: 1.1em;
+	letter-spacing: 0.08em;
+}
+
+@media (max-width: 700px) {
+	.dialogue-box {
+		right: 18%;
+		bottom: 5%;
+		min-height: 28%;
+		padding-right: 17%;
+	}
+
+	.rayna-area {
+		right: -5%;
+		width: 37%;
+	}
+
+	.dialogue-actions {
+		right: 2%;
+	}
+
+	.dialogue-actions button {
+		min-width: 6.5rem;
+		padding: 0.55rem 0.7rem;
+	}
+}

@@ -1,0 +1,116 @@
+.village-scene[hidden], .village-overlay[hidden], .village-game[hidden], .village-settings-panel[hidden], .village-puzzle[hidden] { display: none; }
+.village-scene { position: absolute; inset: 0; z-index: 11; overflow: hidden; color: #172016; background: #203f2b; }
+.village-shell { position: relative; width: 100%; height: 100%; background: var(--village-area-background, url('../assets/images/village/background/bg_desa.png')) center / cover no-repeat; transition: background-image 350ms ease; }
+.village-opening-video { position: absolute; inset: 0; z-index: 5; width: 100%; height: 100%; object-fit: cover; background: #183625; }
+.village-skip-video, .village-back-button, .village-guide-button, .village-settings-button { position: absolute; z-index: 12; padding: .55rem .95rem; border: .1rem solid rgba(239, 244, 124, .7); border-radius: 1rem .55rem 1rem .55rem; color: #fff; background: linear-gradient(145deg, rgba(32, 105, 60, .96), rgba(15, 57, 34, .96)); box-shadow: 0 .25rem 0 rgba(8, 28, 13, .35), inset 0 0 0 .08rem rgba(255, 255, 255, .08); font: inherit; font-size: clamp(.65rem, 1vw, .85rem); font-weight: 700; cursor: pointer; transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease; }
+.village-skip-video { right: 2.5%; bottom: 3%; }
+.village-back-button { bottom: 2.5%; left: 2.5%; }
+.village-guide-button { top: 2.5%; right: 7rem; }
+.village-settings-button { top: 2.5%; right: 2.5%; width: 2.7rem; height: 2.7rem; padding: 0; border-radius: 50%; font-size: 1.3rem; }
+.village-skip-video:hover, .village-back-button:hover, .village-guide-button:hover, .village-settings-button:hover, .village-place:hover, .village-place:focus-visible { filter: brightness(1.14); transform: translateY(-.15rem) rotate(-.4deg); box-shadow: 0 .38rem 0 rgba(8, 28, 13, .35); }
+.village-dialogue { position: absolute; inset: 0; z-index: 8; background: rgba(9, 26, 15, .18); }
+.village-dialogue-character { position: absolute; right: 2%; bottom: 0; width: 25%; height: 62%; display: flex; align-items: end; justify-content: center; }
+.village-dialogue-character img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.village-dialogue-box { position: absolute; right: 22%; bottom: 6%; left: 4%; min-height: 22%; padding: 2rem 3% 4.5rem; border: .2rem solid #172016; border-radius: 1.4rem; background: #fff; box-shadow: .35rem .45rem 0 rgba(0,0,0,.25); }
+.village-dialogue-box p { margin: 0; min-height: 3.5em; font-size: clamp(1rem, 2vw, 1.7rem); line-height: 1.45; }
+.village-dialogue-actions { position: absolute; right: 3%; bottom: 8%; left: 3%; display: flex; justify-content: space-between; }
+.village-dialogue-actions button { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-width: 6.5rem; padding: .45rem .75rem; border: .14rem solid #122916; border-radius: 999px; color: #fff; background: #3d9a58; font: inherit; font-size: clamp(.7rem, 1.1vw, .95rem); font-weight: 700; cursor: pointer; }
+.village-modal button, .village-puzzle button { padding: .45rem .75rem; border: .14rem solid #122916; border-radius: 999px; color: #fff; background: #3d9a58; font: inherit; font-size: clamp(.7rem, 1.1vw, .95rem); font-weight: 700; cursor: pointer; }
+.village-dialogue-actions button:disabled { opacity: .45; cursor: not-allowed; }
+.village-exploration[hidden] { display: none; }
+.village-exploration { position: absolute; inset: 0; z-index: 6; overflow: hidden; }
+.village-npc-layer { position: absolute; inset: 0; }
+.village-npc { position: absolute; bottom: 8%; width: clamp(4.5rem, 10vw, 8rem); height: clamp(8rem, 25vh, 14rem); padding: 0; border: 0; color: #fff; background: transparent; cursor: pointer; transform: translateX(-50%); filter: drop-shadow(0 .3rem .2rem rgba(0,0,0,.28)); transition: filter 180ms ease, transform 180ms ease; }
+.village-npc img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.village-npc-name { position: absolute; bottom: -1.2rem; left: 50%; padding: .18rem .4rem; border-radius: .25rem; color: #fff; background: rgba(20, 55, 29, .8); font-size: clamp(.5rem, .8vw, .7rem); font-weight: 800; white-space: nowrap; transform: translateX(-50%); }
+.village-npc.is-nearby { filter: drop-shadow(0 0 .55rem #eff47c); transform: translateX(-50%) translateY(-.25rem); }
+.village-rayna { position: absolute; bottom: 10%; left: 50%; z-index: 3; width: clamp(5rem, 12vw, 9rem); height: clamp(9rem, 30vh, 16rem); object-fit: contain; object-position: bottom; transform: translateX(-50%); filter: drop-shadow(0 .35rem .25rem rgba(0,0,0,.3)); }
+.village-exploration-hint { position: absolute; right: 2%; bottom: 2%; left: 2%; margin: 0; color: #fff; font-size: clamp(.65rem, 1.1vw, .9rem); font-weight: 700; text-align: center; text-shadow: 0 2px 3px #172016; }
+.village-exploration-continue { position: absolute; right: 2.5%; bottom: 3%; z-index: 12; padding: .45rem .8rem; border: .14rem solid #122916; border-radius: 999px; color: #fff; background: rgba(25, 75, 38, .92); font: inherit; font-size: clamp(.7rem, 1.1vw, .95rem); font-weight: 800; cursor: pointer; }
+.village-exploration-continue:hover, .village-exploration-continue:focus-visible { background: #3d9a58; transform: translateY(-.1rem); }
+.village-npc-dialogue { position: absolute; inset: 0; z-index: 15; background: rgba(9, 26, 15, .2); }
+.village-npc-dialogue-character { position: absolute; right: 2%; bottom: 0; width: 22%; height: 54%; display: flex; align-items: end; justify-content: center; }
+.village-npc-dialogue-character img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.village-npc-dialogue-box { position: absolute; right: 19%; bottom: 6%; left: 4%; min-height: 22%; padding: 1.3rem 3% 4.5rem; border: .2rem solid #172016; border-radius: 1.4rem; background: #fff; box-shadow: .35rem .45rem 0 rgba(0,0,0,.25); }
+.village-npc-dialogue-box p { margin: 0; font-size: clamp(.95rem, 1.8vw, 1.55rem); line-height: 1.4; }
+.village-npc-dialogue-box p:first-child { margin-bottom: .35rem; color: #28643a; font-size: .8em; font-weight: 800; }
+.village-quiz-modal { width: min(92%, 58rem); }
+.village-quiz-kicker { margin: 0 0 .5rem; color: #d8eeb5; font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+.village-quiz-modal h2 { line-height: 1.35; }
+.village-quiz-options { display: grid; gap: .65rem; }
+.village-quiz-options button { margin: 0; border-radius: .4rem; text-align: left; }
+.village-quiz-options button.is-wrong { background: #914039; }
+#village-quiz-feedback { min-height: 1.5em; margin: 1rem 0 0; color: #eff47c; font-weight: 700; }
+.village-modal-layer { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; padding: 3%; background: rgba(9, 26, 15, .66); backdrop-filter: blur(.2rem); }
+.village-modal { width: min(92%, 54rem); max-height: 92%; overflow: auto; padding: clamp(1.2rem, 3vw, 2rem); border: .15rem solid #d8eeb5; border-radius: .45rem 1.4rem .45rem 1.4rem; color: #f5f8ed; background: #1e4b2a; box-shadow: .45rem .55rem 0 rgba(8, 28, 13, .45); }
+.village-replay-modal { position: relative; width: min(34rem, 100%); padding: 2rem; border: .15rem solid #79a6a0; border-radius: 1.3rem; background: #073c43; text-align: center; }
+.village-modal-close { position: absolute; top: .8rem; right: .8rem; width: 2.2rem; height: 2.2rem; padding: 0 !important; border-radius: 50% !important; font-size: 1.5rem; }
+.village-replay-kicker { color: #f1d36d; font-size: .75rem; font-weight: 800; letter-spacing: .14em; }
+.village-replay-modal h2 { margin: .55rem 0 .8rem; color: #fff; font-size: clamp(1.35rem, 3vw, 1.85rem); line-height: 1.25; }
+.village-replay-modal p { margin: 0; color: rgba(244, 248, 238, .88); line-height: 1.5; }
+.village-replay-actions { display: flex; justify-content: center; margin-top: 1.25rem; }
+.village-replay-actions button { min-width: 9rem; padding: .55rem .9rem; border: .12rem solid #122916; border-radius: 999px; color: #17353a; background: #f1d36d; font: inherit; font-size: .8rem; font-weight: 800; cursor: pointer; }
+.village-replay-actions button:hover, .village-replay-actions button:focus-visible { background: #f7df84; }
+.village-modal h2 { margin: 0 0 1rem; color: #eff47c; font-size: clamp(1.3rem, 3vw, 2.2rem); }
+.village-modal h3 { margin: 1rem 0 .3rem; color: #d8eeb5; font-size: 1rem; }
+.village-modal p, .village-modal li { line-height: 1.5; }
+.village-modal > button { display: block; margin: 1.4rem auto 0; }
+.village-game { position: absolute; inset: 0; z-index: 4; padding: 8% 6% 6%; }
+.village-hud { position: absolute; top: 2.5%; right: 2.5%; left: 2.5%; z-index: 10; display: flex; align-items: center; gap: .55rem; }
+.village-score-box, .forest-score-box { position: relative; display: grid; min-width: 5.2rem; padding: .45rem .85rem .5rem; border: .1rem solid rgba(239, 244, 124, .75); border-radius: .65rem 1.1rem .65rem 1.1rem; color: #fff; background: linear-gradient(145deg, rgba(28, 94, 53, .97), rgba(13, 48, 29, .97)); box-shadow: 0 .28rem 0 rgba(8, 28, 13, .38), inset 0 .08rem 0 rgba(255, 255, 255, .12); text-align: center; }
+.village-score-box::before, .forest-score-box::before { position: absolute; top: .22rem; right: .35rem; width: .35rem; height: .35rem; border-radius: 50%; background: #eff47c; box-shadow: -.55rem 0 0 rgba(239, 244, 124, .45); content: ''; }
+.village-score-box span, .forest-score-box span { font-size: .65rem; font-weight: 800; letter-spacing: .08em; }
+.village-score-box strong, .forest-score-box strong { color: #eff47c; font-size: 1.15rem; line-height: 1; }
+.village-hud .village-guide-button { position: static; margin-left: auto; }
+.village-hud .village-settings-button { position: static; }
+.village-place-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2%; height: 70%; align-items: end; }
+.village-place-list[hidden], .village-status[hidden] { display: none !important; }
+.village-place { min-height: 9rem; padding: 1rem; border: .18rem solid #d8eeb5; border-radius: .7rem; color: #fff; background: rgba(30, 75, 42, .76); font: inherit; font-weight: 800; cursor: pointer; transition: transform 180ms ease, background-color 180ms ease; }
+.village-place.is-complete { border-color: #eff47c; background: rgba(38, 100, 58, .9); }
+.village-place:disabled { cursor: not-allowed; opacity: .75; }
+.village-status { position: absolute; bottom: 3%; left: 50%; margin: 0; transform: translateX(-50%); color: #fff; font-weight: 700; text-shadow: 0 2px 3px #182815; }
+.village-area-intro { position: absolute; inset: 0; z-index: 16; background: rgba(9, 26, 15, .12); }
+.village-area-intro-character { position: absolute; right: 2%; bottom: 0; width: 25%; height: 62%; display: flex; align-items: end; justify-content: center; }
+.village-area-intro-character img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.village-area-intro-box { position: absolute; right: 22%; bottom: 6%; left: 4%; min-height: 22%; padding: 2rem 3% 4.5rem; border: .2rem solid #172016; border-radius: 1.4rem; background: #fff; box-shadow: .35rem .45rem 0 rgba(0,0,0,.25); }
+.village-area-intro-box p { margin: 0; min-height: 3.5em; font-size: clamp(1rem, 2vw, 1.7rem); line-height: 1.45; }
+.village-area-intro-box button { position: absolute; right: 3%; bottom: 8%; padding: .45rem .75rem; border: .14rem solid #122916; border-radius: 999px; color: #fff; background: #3d9a58; font: inherit; font-weight: 700; cursor: pointer; }
+.village-area-intro-box .village-dialogue-actions button, .village-result-dialogue-box .village-dialogue-actions button { position: static; }
+.village-settings-panel { position: absolute; top: 10%; right: 3%; z-index: 25; display: grid; gap: .65rem; width: min(20rem, 86%); padding: 1.2rem; border: .18rem solid #141414; border-radius: 1rem; color: #151515; background: rgba(255,255,255,.96); box-shadow: .3rem .4rem 0 rgba(0,0,0,.25); }
+.village-settings-panel h2 { margin: 0; font-size: 1.1rem; }
+.village-settings-panel label { display: flex; justify-content: space-between; gap: 1rem; font-size: .72rem; font-weight: 700; }
+.village-settings-panel input { width: 100%; accent-color: #3d9a58; }
+.village-settings-panel button { padding: .5rem; border: .12rem solid #17301a; border-radius: .35rem; color: #fff; background: #28643a; font: inherit; font-weight: 700; cursor: pointer; }
+.village-puzzle { position: absolute; inset: 8% 10% 8%; z-index: 18; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 1rem; padding: 1.35rem 1.5rem 1.15rem; border: .1rem solid rgba(216, 238, 181, .78); border-radius: 1.8rem .65rem 1.8rem .65rem; color: #fff; background: linear-gradient(145deg, rgba(18, 73, 40, .95), rgba(7, 39, 25, .94)); box-shadow: .45rem .55rem 0 rgba(0,0,0,.28), inset 0 0 2.5rem rgba(177, 225, 111, .06); }
+.village-puzzle::before { position: absolute; top: .7rem; left: 1.2rem; width: 4rem; height: .18rem; border-radius: 99rem; background: #eff47c; box-shadow: 1.2rem 0 0 rgba(239, 244, 124, .35), 2.4rem 0 0 rgba(239, 244, 124, .16); content: ''; }
+.village-puzzle-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.village-puzzle-heading h2 { margin: .2rem 0 0; color: #eff47c; font-size: clamp(1rem, 2.2vw, 1.8rem); letter-spacing: .02em; text-shadow: 0 .12rem 0 rgba(8, 28, 13, .45); }
+.village-puzzle-heading strong { display: inline-flex; align-items: center; gap: .35rem; padding: .4rem .65rem; border: .1rem solid rgba(216, 238, 181, .45); border-radius: 999px; color: #d8eeb5; background: rgba(8, 28, 13, .38); font-size: clamp(.65rem, 1vw, .85rem); white-space: nowrap; }
+.village-puzzle-heading strong span { color: #eff47c; }
+.village-puzzle-preview { margin-left: auto; padding: .5rem .8rem !important; border-color: #eff47c !important; border-radius: 999px !important; color: #17301a !important; background: #eff47c !important; box-shadow: 0 .2rem 0 rgba(8, 28, 13, .3) !important; font-size: clamp(.58rem, .9vw, .75rem) !important; white-space: nowrap; }
+.village-puzzle-preview:disabled { color: #d8eeb5 !important; background: rgba(255, 255, 255, .12) !important; cursor: not-allowed; opacity: .75; }
+.village-puzzle-grid { display: grid; width: min(100%, 62rem, 68vh); aspect-ratio: 1; min-height: 0; margin: 0 auto; gap: clamp(.2rem, .55vw, .45rem); }
+.village-puzzle-grid.is-failed { animation: village-puzzle-shake 420ms ease-in-out; }
+.village-puzzle-grid.is-complete { pointer-events: none; }
+.village-puzzle-tile { min-width: 0; min-height: 0; padding: 0; border: .1rem solid rgba(8, 28, 13, .78) !important; border-radius: .75rem !important; background-repeat: no-repeat; cursor: pointer; box-shadow: 0 .16rem .22rem rgba(0, 0, 0, .3); transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease; }
+.village-puzzle-tile:hover { z-index: 1; filter: brightness(1.12) saturate(1.08); transform: translateY(-.12rem) rotate(.35deg); box-shadow: 0 .3rem .4rem rgba(0, 0, 0, .38); }
+.village-puzzle-tile.is-selected { outline: .18rem solid #eff47c; outline-offset: -.18rem; filter: brightness(1.12); transform: scale(.96); }
+.village-puzzle-points { position: absolute; top: 50%; left: 50%; z-index: 2; pointer-events: none; transform: translate(-50%, -50%); }
+.village-puzzle-points-label { display: block; color: #eff47c; font-size: clamp(1.6rem, 4vw, 3.2rem); font-weight: 900; text-shadow: 0 .15rem .2rem rgba(0, 0, 0, .7); animation: village-puzzle-points-float 900ms ease-out forwards; }
+.village-puzzle > button { justify-self: center; border-radius: 999px; background: linear-gradient(145deg, #4eae69, #2c814d); box-shadow: 0 .25rem 0 rgba(8, 28, 13, .35); }
+.village-puzzle-preview-panel { position: absolute; inset: 0; z-index: 5; display: grid; place-items: center; padding: 3%; background: rgba(9, 26, 15, .78); backdrop-filter: blur(.3rem); }
+.village-puzzle-preview-card { width: min(92%, 34rem); padding: clamp(1rem, 3vw, 1.7rem); border: .15rem solid #eff47c; border-radius: 1rem; color: #f5f8ed; background: linear-gradient(145deg, #245d36, #123d25); box-shadow: .35rem .45rem 0 rgba(8, 28, 13, .45); text-align: center; }
+.village-puzzle-kicker { display: block; color: #eff47c; font-size: .68rem; font-weight: 900; letter-spacing: .14em; }
+.village-puzzle-preview-card h3 { margin: .45rem 0 .8rem; color: #fff; font-size: clamp(1rem, 2vw, 1.4rem); }
+.village-puzzle-preview-card img { display: block; width: min(100%, 46rem); max-height: 55vh; margin: 0 auto; border: .12rem solid rgba(216, 238, 181, .75); border-radius: .55rem; background: rgba(11, 38, 20, .55); object-fit: contain; box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .35); }
+.village-puzzle-preview-card p { margin: .75rem 0; color: #d8eeb5; font-size: .8rem; }
+.village-puzzle-preview-card button { border-radius: 999px; }
+.village-result { position: absolute; inset: 0; z-index: 22; background: rgba(9, 26, 15, .16); }
+.village-result-character { position: absolute; right: 2%; bottom: 0; width: 25%; height: 62%; display: flex; align-items: end; justify-content: center; }
+.village-result-character img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.village-result-dialogue-box { position: absolute; right: 22%; bottom: 6%; left: 4%; min-height: 22%; padding: 2rem 3% 4.5rem; border: .2rem solid #172016; border-radius: 1.4rem; background: #fff; box-shadow: .35rem .45rem 0 rgba(0,0,0,.25); }
+.village-result-dialogue-box p { margin: 0; min-height: 3.5em; font-size: clamp(1rem, 2vw, 1.7rem); line-height: 1.45; }
+.village-result-dialogue-box button { position: absolute; right: 3%; bottom: 8%; padding: .45rem .75rem; border: .14rem solid #122916; border-radius: 999px; color: #fff; background: #3d9a58; font: inherit; font-weight: 700; cursor: pointer; }
+@keyframes village-puzzle-shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-.5rem); } 40%, 80% { transform: translateX(.5rem); } }
+@keyframes village-puzzle-points-float { from { opacity: 1; transform: translateY(0) scale(.8); } to { opacity: 0; transform: translateY(-4rem) scale(1.1); } }
+@media (max-width: 650px) { .village-dialogue-character, .village-result-character, .village-area-intro-character { right: 0; width: 32%; height: 50%; } .village-dialogue-box, .village-result-dialogue-box, .village-area-intro-box { right: 14%; bottom: 4%; left: 2%; padding: 1rem 1rem 4rem; } .village-place-list { gap: .5rem; } .village-place { min-height: 6rem; padding: .5rem; font-size: .75rem; } .village-puzzle { inset: 12% 3% 10%; padding: .9rem .65rem .65rem; gap: .5rem; border-radius: 1.2rem .5rem 1.2rem .5rem; } .village-puzzle-heading { align-items: flex-start; flex-wrap: wrap; } .village-puzzle-heading strong { margin-left: auto; } .village-puzzle-preview { margin-left: 0; } .village-puzzle-tile { min-height: 0; border-radius: .4rem !important; } .village-npc-dialogue-character { right: 0; width: 30%; height: 42%; } .village-npc-dialogue-box { right: 10%; bottom: 4%; left: 2%; padding: 1rem 1rem 4rem; } .village-npc { bottom: 20%; width: 4rem; height: 8rem; } }

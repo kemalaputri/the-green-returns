@@ -1,0 +1,1088 @@
+.river-scene[hidden] {
+	display: none;
+}
+
+.river-scene {
+	position: absolute;
+	inset: 0;
+	z-index: 8;
+	background: #0f2a39;
+	overflow: hidden;
+}
+
+.river-scene-shell {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, #204e5a 0%, #0e2f42 100%);
+}
+
+.river-background,
+.river-result-bg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.river-background {
+	position: absolute;
+	inset: 0;
+}
+
+.river-background-clean {
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 2.8s ease-in-out;
+}
+
+.river-background-clean.is-visible {
+	opacity: 1;
+}
+
+.river-hit-flash {
+	position: absolute;
+	inset: 0;
+	z-index: 7;
+	pointer-events: none;
+	background: rgba(255, 33, 33, 0.18);
+	opacity: 0;
+}
+
+.river-hit-flash.is-visible {
+	animation: river-hit-flash 260ms ease-out;
+}
+
+@keyframes river-hit-flash {
+	0% {
+		opacity: 0;
+	}
+	18% {
+		opacity: 1;
+	}
+	65% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.river-hud {
+	position: absolute;
+	top: 2.2%;
+	left: 2.2%;
+	z-index: 6;
+	display: flex;
+	gap: 0.45rem;
+	align-items: stretch;
+}
+
+.river-back-button,
+.river-settings-button,
+.river-tutorial-button,
+.river-collection-button {
+	position: absolute;
+	z-index: 8;
+	padding: 0.38rem 0.7rem;
+	border: 0.14rem solid #122916;
+	border-radius: 999px;
+	background: rgba(25, 75, 38, 0.9);
+	color: #fff;
+	font: inherit;
+	font-size: clamp(0.65rem, 1vw, 0.85rem);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.river-back-button[hidden] {
+	display: none;
+}
+
+.river-back-button {
+	bottom: 3%;
+	left: 2.2%;
+}
+
+
+.river-top-actions {
+	position: absolute;
+	top: 2.2%;
+	right: 2.2%;
+	z-index: 15;
+	display: flex;
+	gap: 0.45rem;
+}
+
+.river-top-actions button {
+	position: static;
+}
+
+.river-back-button:hover,
+.river-back-button:focus-visible,
+.river-settings-button:hover,
+.river-settings-button:focus-visible,
+.river-tutorial-button:hover,
+.river-tutorial-button:focus-visible {
+	background: #2f7d45;
+}
+
+.river-collection-button:hover,
+.river-collection-button:focus-visible {
+	background: #2f7d45;
+}
+
+.river-back-button:focus-visible,
+.river-settings-button:focus-visible,
+.river-tutorial-button:focus-visible,
+.river-collection-button:focus-visible,
+.river-settings-panel button:focus-visible {
+	outline: 0.2rem solid #f4d35e;
+	outline-offset: 0.2rem;
+}
+
+.river-settings-panel[hidden] {
+	display: none;
+}
+
+.river-settings-panel {
+	position: absolute;
+	top: 10%;
+	right: 3%;
+	z-index: 11;
+	display: grid;
+	gap: 0.55rem;
+	width: min(19rem, 86%);
+	padding: 1.2rem;
+	border: 0.18rem solid #141414;
+	border-radius: 1rem;
+	background: rgba(255, 255, 255, 0.96);
+	box-shadow: 0.3rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+	color: #151515;
+}
+
+.river-settings-panel h2 {
+	margin: 0 0 0.25rem;
+	font-size: 1.1rem;
+}
+
+.river-settings-panel label {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.72rem;
+	font-weight: 700;
+}
+
+.river-settings-panel input {
+	width: 100%;
+}
+
+.river-settings-panel button {
+	padding: 0.45rem 0.7rem;
+	border: 0.12rem solid #122916;
+	border-radius: 999px;
+	background: #3d9a58;
+	color: #fff;
+	font: inherit;
+	font-size: 0.75rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.river-collection-panel,
+.river-education-panel,
+.river-restart-confirmation {
+	position: absolute;
+	inset: 0;
+	z-index: 100;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	background: rgba(5, 25, 31, 0.72);
+	backdrop-filter: blur(7px);
+}
+
+.river-collection-panel[hidden],
+.river-education-panel[hidden],
+.river-restart-confirmation[hidden] {
+	display: none;
+}
+
+.river-collection-card,
+.river-education-card,
+.river-restart-card {
+	width: min(44rem, 100%);
+	padding: clamp(1rem, 3vw, 1.6rem);
+	border: 0.15rem solid rgba(225, 246, 204, 0.6);
+	border-radius: 1.2rem;
+	background: linear-gradient(145deg, rgba(13, 68, 69, 0.99), rgba(10, 38, 50, 0.99));
+	box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.45);
+	color: #f4f8ee;
+}
+
+.river-modal-heading {
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid rgba(225, 246, 204, 0.25);
+}
+
+.river-modal-heading span,
+.river-education-kicker {
+	color: #f7d86d;
+	font-size: 0.7rem;
+	font-weight: 800;
+	letter-spacing: 0.16em;
+}
+
+.river-modal-heading h2,
+.river-education-card h2 {
+	margin: 0.25rem 0 0;
+	font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.river-modal-heading strong {
+	white-space: nowrap;
+	color: #17353a;
+	padding: 0.4rem 0.65rem;
+	border-radius: 999px;
+	background: #f1d36d;
+	font-size: 0.8rem;
+}
+
+.river-modal-description {
+	margin: 0.8rem 0;
+	color: rgba(244, 248, 238, 0.85);
+	font-size: 0.9rem;
+	line-height: 1.45;
+}
+
+.river-collection-grid {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 0.55rem;
+}
+
+.river-collection-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.3rem;
+	min-height: 9rem;
+	padding: 0.55rem 0.35rem;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.85rem;
+	background: rgba(255, 255, 255, 0.08);
+	color: #f4f8ee;
+	font: inherit;
+	text-align: center;
+}
+
+.river-collection-item.is-found {
+	cursor: pointer;
+}
+
+.river-collection-item.is-found:hover,
+.river-collection-item.is-found:focus-visible {
+	transform: translateY(-0.2rem);
+	background: rgba(255, 255, 255, 0.16);
+	outline: 0.18rem solid #f4d35e;
+	outline-offset: 0.15rem;
+}
+
+.river-collection-item img {
+	width: 4rem;
+	height: 4rem;
+	object-fit: contain;
+	filter: drop-shadow(0 0.35rem 0.3rem rgba(0, 0, 0, 0.25));
+}
+
+.river-collection-item strong {
+	font-size: 0.82rem;
+}
+
+.river-collection-item span {
+	color: rgba(244, 248, 238, 0.72);
+	font-size: 0.68rem;
+}
+
+.river-collection-item .river-collection-points {
+	color: #f7d86d;
+	font-size: 0.76rem;
+	font-weight: 800;
+}
+
+.river-collection-item.is-locked {
+	border-color: rgba(255, 255, 255, 0.1);
+	cursor: not-allowed;
+	opacity: 0.62;
+}
+
+.river-collection-item.is-locked img {
+	filter: brightness(0) opacity(0.7);
+}
+
+.river-modal-close {
+	display: block;
+	margin: 1rem 0 0 auto;
+	padding: 0.55rem 1rem;
+	border: 0.12rem solid #122916;
+	border-radius: 999px;
+	background: #3d9a58;
+	color: #fff;
+	font: inherit;
+	font-size: 0.78rem;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.river-education-card {
+	display: grid;
+	grid-template-columns: minmax(6rem, 30%) 1fr;
+	align-items: center;
+	gap: clamp(1rem, 3vw, 2rem);
+	width: min(38rem, 100%);
+}
+
+.river-education-card > img {
+	width: 100%;
+	max-height: 12rem;
+	object-fit: contain;
+	filter: drop-shadow(0 0.6rem 0.45rem rgba(0, 0, 0, 0.3));
+}
+
+.river-education-card p {
+	margin: 0.75rem 0 0;
+	font-size: clamp(0.92rem, 1.8vw, 1.1rem);
+	line-height: 1.55;
+}
+
+.river-restart-card {
+	width: min(31rem, 100%);
+	text-align: center;
+}
+
+.river-restart-card h2 {
+	margin: 0.45rem 0;
+	font-size: clamp(1.35rem, 3vw, 1.85rem);
+}
+
+.river-restart-card p {
+	margin: 0;
+	color: rgba(244, 248, 238, 0.88);
+	line-height: 1.5;
+}
+
+.river-restart-actions {
+	display: flex;
+	justify-content: center;
+	gap: 0.65rem;
+	margin-top: 1.2rem;
+}
+
+.river-restart-actions button {
+	min-width: 5rem;
+	padding: 0.55rem 0.9rem;
+	border: 0.12rem solid #122916;
+	border-radius: 999px;
+	background: #3d9a58;
+	color: #fff;
+	font: inherit;
+	font-size: 0.8rem;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.river-restart-actions button:last-child {
+	background: #e76b5f;
+}
+
+.river-hutan-confirmation-actions button {
+	min-width: 8rem;
+}
+
+.river-hutan-confirmation-actions button:last-child {
+	background: #f1d36d;
+	color: #17353a;
+}
+
+.river-score-box,
+.river-timer-box {
+	min-width: 5.8rem;
+	padding: 0.35rem 0.55rem 0.4rem;
+	border: 0.12rem solid rgba(220, 244, 190, 0.9);
+	border-radius: 0.75rem;
+	background: linear-gradient(145deg, rgba(21, 75, 66, 0.94), rgba(12, 42, 49, 0.9));
+	box-shadow: 0 0.25rem 0 rgba(8, 26, 31, 0.4), inset 0 0 0 0.08rem rgba(255, 255, 255, 0.08);
+	color: #f4f8ee;
+	text-align: center;
+}
+
+.river-score-box span,
+.river-timer-box span {
+	display: block;
+	font-size: 0.58rem;
+	letter-spacing: 0.12em;
+	opacity: 0.9;
+}
+
+.river-score-box strong,
+.river-timer-box strong {
+	display: block;
+	margin-top: 0.12rem;
+	font-size: clamp(0.95rem, 1.6vw, 1.35rem);
+	font-weight: 800;
+}
+
+.river-powerup-status {
+	min-width: 9rem;
+	padding: 0.65rem 0.8rem;
+	border: 0.12rem solid rgba(255, 224, 104, 0.9);
+	border-radius: 0.75rem;
+	background: rgba(54, 48, 16, 0.88);
+	color: #ffe268;
+	font-size: clamp(0.58rem, 0.8vw, 0.75rem);
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.river-game-area {
+	position: absolute;
+	inset: 0;
+	z-index: 4;
+	overflow: hidden;
+}
+
+.river-boat {
+	position: absolute;
+	top: 72%;
+	left: 50%;
+	width: 22%;
+	max-width: 14rem;
+	transform: translateX(-50%);
+	filter: drop-shadow(0.5rem 0.8rem 0.5rem rgba(14, 46, 51, 0.45));
+	transition: left 90ms linear, top 90ms linear;
+	will-change: left, top, transform;
+}
+
+.river-boat.is-shaking {
+	animation: boat-shake 420ms ease-in-out 2;
+} 
+
+@keyframes boat-shake {
+	0%, 100% {
+		transform: translateX(-50%) rotate(0deg);
+	}
+	20% {
+		transform: translateX(-50%) rotate(-7deg) translateY(-4px);
+	}
+	40% {
+		transform: translateX(-50%) rotate(7deg) translateY(4px);
+	}
+	60% {
+		transform: translateX(-50%) rotate(-6deg) translateY(-3px);
+	}
+	80% {
+		transform: translateX(-50%) rotate(6deg) translateY(3px);
+	}
+}
+
+.river-item {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 3.2%;
+	max-width: 2.5rem;
+	pointer-events: none;
+	filter: drop-shadow(0.35rem 0.45rem 0.35rem rgba(11, 38, 20, 0.2));
+}
+
+.river-item img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+.river-item.river-obstacle {
+	width: 4.8%;
+	max-width: 3.2rem;
+}
+
+.river-item.river-powerup {
+	width: 5.4%;
+	max-width: 3.6rem;
+	filter: drop-shadow(0 0 0.45rem rgba(255, 224, 104, 0.95));
+	animation: powerup-float 900ms ease-in-out infinite alternate;
+}
+
+@keyframes powerup-float {
+	from {
+		transform: translateY(0) scale(0.95);
+	}
+	to {
+		transform: translateY(-0.35rem) scale(1.05);
+	}
+}
+
+.river-intro {
+	position: absolute;
+	inset: 0;
+	z-index: 9;
+	display: grid;
+	place-items: center;
+	background: rgba(11, 30, 38, 0.22);
+}
+
+.river-intro.is-hidden {
+	display: none;
+}
+
+.river-dialogue-box {
+	position: absolute;
+	right: 25%;
+	bottom: 7%;
+	left: 4%;
+	min-height: 24%;
+	padding: 2.2% 14% 5.5% 3.5%;
+	border: 0.25rem solid #141414;
+	border-radius: 2rem;
+	background: #fff;
+	box-shadow: 0.35rem 0.45rem 0 rgba(0, 0, 0, 0.25);
+	color: #151515;
+}
+
+.river-dialogue-character {
+	position: absolute;
+	right: 1%;
+	bottom: 0;
+	z-index: 3;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	width: 28%;
+	height: 79%;
+	pointer-events: none;
+}
+
+.river-dialogue-character img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: right bottom;
+}
+
+.river-dialogue-copy {
+	width: 100%;
+	height: 100%;
+}
+
+.river-dialogue-copy p {
+	width: 100%;
+	margin: 0;
+	font-size: clamp(1rem, 2.1vw, 2rem);
+	line-height: 1.35;
+}
+
+.river-dialogue-actions {
+	position: absolute;
+	right: 2.5%;
+	bottom: 9%;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.river-dialogue-actions button,
+.river-result-actions button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	min-width: 6.5rem;
+	padding: 0.45rem 0.75rem;
+	border: 0.14rem solid #122916;
+	border-radius: 999px;
+	background: #3d9a58;
+	color: #fff;
+	font: inherit;
+	font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.river-dialogue-actions button:hover,
+.river-dialogue-actions button:focus-visible,
+.river-result-actions button:hover,
+.river-result-actions button:focus-visible {
+	background: #2f7d45;
+}
+
+.river-tutorial-panel {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	display: grid;
+	place-items: center;
+	padding: 1.25rem;
+	overflow: hidden;
+	background: rgba(5, 25, 31, 0.7);
+	backdrop-filter: blur(7px);
+	animation: tutorial-panel-fade-in 320ms ease-out both;
+}
+
+.river-tutorial-panel[hidden] {
+	display: none;
+}
+
+.river-tutorial-panel.is-visible {
+	display: grid;
+}
+
+.river-tutorial-panel.is-closing {
+	display: grid;
+	animation: tutorial-panel-fade-out 320ms ease-in both;
+}
+
+@keyframes tutorial-panel-fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes tutorial-panel-fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+.river-tutorial-card {
+	/* Keep the guide focused on the game instead of filling the whole screen. */
+	width: min(760px, 100%);
+	max-height: min(84vh, 680px);
+	overflow-x: hidden;
+	overflow-y: auto;
+	min-width: 0;
+	padding: clamp(1rem, 2vw, 1.5rem);
+	border: 2px solid rgba(225, 246, 204, 0.6);
+	border-radius: 1.4rem;
+	background: linear-gradient(145deg, rgba(13, 68, 69, 0.98), rgba(10, 38, 50, 0.98));
+	box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255,255,255,0.08);
+	color: #f4f8ee;
+	animation: tutorial-card-in 420ms ease-out both;
+}
+
+@keyframes tutorial-card-in {
+	from { opacity: 0; transform: translateY(1rem) scale(0.98); }
+	to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.river-tutorial-heading {
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid rgba(225, 246, 204, 0.25);
+}
+
+.river-tutorial-kicker {
+	color: #f7d86d;
+	font-size: 0.7rem;
+	font-weight: 800;
+	letter-spacing: 0.18em;
+}
+
+.river-tutorial-heading h2 {
+	margin: 0.3rem 0 0.2rem;
+	font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+}
+
+.river-tutorial-heading p {
+	margin: 0;
+	color: rgba(244, 248, 238, 0.82);
+	font-size: clamp(0.85rem, 1.3vw, 1rem);
+}
+
+.river-controls-guide {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.65rem 0.8rem;
+	border: 1px solid rgba(225, 246, 204, 0.22);
+	border-radius: 0.85rem;
+	background: rgba(255,255,255,0.06);
+}
+
+.river-controls-guide p {
+	margin: 0;
+	color: rgba(244, 248, 238, 0.82);
+	font-size: 0.78rem;
+	line-height: 1.4;
+}
+
+.river-arrow-keys {
+	display: grid;
+	grid-template-columns: repeat(3, 2rem);
+	grid-template-rows: repeat(2, 2rem);
+	gap: 0.25rem;
+	flex-shrink: 0;
+	width: 6.5rem;
+}
+
+.river-key {
+	display: grid;
+	place-items: center;
+	border: 1px solid rgba(255,255,255,0.3);
+	border-radius: 0.35rem;
+	background: rgba(6, 28, 34, 0.7);
+	color: #ffe268;
+	font-size: 1.15rem;
+	font-weight: 800;
+	box-shadow: inset 0 -2px rgba(0,0,0,0.25);
+}
+
+.river-key-up {
+	grid-column: 2;
+}
+
+.river-key-up + .river-key {
+	grid-column: 1;
+}
+
+.river-tutorial-section {
+	margin-top: 0.8rem;
+}
+
+.river-tutorial-section h3 {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin: 0 0 0.45rem;
+	color: #e8f2ba;
+	font-size: 0.95rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.river-tutorial-section h3 span {
+	color: #f7d86d;
+	font-size: 0.72rem;
+}
+
+.river-guide-grid {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 0.45rem;
+}
+
+.river-guide-item {
+	min-width: 0;
+	min-height: 6.15rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.18rem;
+	padding: 0.4rem;
+	border: 1px solid rgba(255,255,255,0.13);
+	border-radius: 0.85rem;
+	background: rgba(255,255,255,0.08);
+	text-align: center;
+	transition: transform 180ms ease, background 180ms ease;
+}
+
+.river-guide-item:hover {
+	transform: translateY(-0.25rem);
+	background: rgba(255,255,255,0.15);
+}
+
+.river-guide-item img {
+	width: 3.35rem;
+	height: 3.35rem;
+	object-fit: contain;
+	filter: drop-shadow(0 0.35rem 0.3rem rgba(0,0,0,0.25));
+}
+
+.river-guide-item strong {
+	color: #ffe268;
+	font-size: 1.05rem;
+}
+
+.river-guide-item span {
+	color: rgba(244, 248, 238, 0.78);
+	font-size: 0.7rem;
+	line-height: 1.25;
+}
+
+.river-obstacle-guide {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.river-obstacle-guide .river-guide-item {
+	border-color: rgba(255, 124, 109, 0.3);
+}
+
+.river-obstacle-guide .river-guide-item span::before {
+	content: "HINDARI • ";
+	color: #ff9c8f;
+	font-weight: 800;
+}
+
+.river-powerup-guide {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.river-powerup-guide .river-guide-item {
+	min-height: 7rem;
+	border-color: rgba(255, 226, 104, 0.45);
+	background: linear-gradient(145deg, rgba(118, 92, 24, 0.35), rgba(255,255,255,0.08));
+}
+
+.river-powerup-guide .river-guide-item img {
+	width: 3.8rem;
+	height: 3.8rem;
+}
+
+.river-tutorial-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.65rem;
+	margin-top: 0.9rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid rgba(225, 246, 204, 0.25);
+}
+
+.river-tutorial-actions button {
+	padding: 0.65rem 1rem;
+	border: 1px solid #122916;
+	border-radius: 999px;
+	background: #3d9a58;
+	color: #fff;
+	font: inherit;
+	font-size: 0.75rem;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.river-tutorial-actions button:last-child {
+	background: #f1d36d;
+	color: #17353a;
+}
+
+.river-dialogue-actions button:focus-visible,
+.river-result-actions button:focus-visible {
+	outline: 0.2rem solid #f4d35e;
+	outline-offset: 0.2rem;
+}
+
+.next-chevron {
+	font-size: 1.1em;
+	letter-spacing: 0.08em;
+}
+
+.river-result-screen {
+	position: absolute;
+	inset: 0;
+	z-index: 12;
+	background: rgba(8, 20, 25, 0.2);
+}
+
+.river-result-screen:not([hidden]) {
+	animation: river-result-fade-in 700ms ease-out both;
+}
+
+@keyframes river-result-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.river-result-screen[hidden] {
+	display: none;
+}
+
+.river-result-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: brightness(0.8);
+}
+
+.river-result-dialogue-box {
+	position: absolute;
+	right: 24%;
+	bottom: 7%;
+	left: 4%;
+	min-height: 24%;
+	padding: 2.2% 14% 5.5% 3.5%;
+	border: 0.25rem solid #141414;
+	border-radius: 2rem;
+	background: #fff;
+	box-shadow: 0.35rem 0.45rem 0 rgba(0, 0, 0, 0.25);
+	color: #151515;
+}
+
+.river-result-character {
+	position: absolute;
+	right: 1%;
+	bottom: 0;
+	z-index: 3;
+	width: 28%;
+	height: 79%;
+	pointer-events: none;
+}
+
+.river-result-rayna {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: right bottom;
+}
+
+.river-result-dialogue-box p {
+	margin: 0;
+	font-size: clamp(1rem, 2.1vw, 2rem);
+	line-height: 1.35;
+}
+
+.river-result-actions {
+	position: absolute;
+	right: 2.5%;
+	bottom: 9%;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.river-result-screen.is-hutan-dialogue .river-result-dialogue-box {
+	right: 43%;
+	bottom: 9%;
+	min-height: 20%;
+	padding-right: 4%;
+}
+
+.river-result-actions button {
+	min-width: 6.5rem;
+	padding: 0.45rem 0.75rem;
+	font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+}
+
+@media (max-width: 700px) {
+	.river-tutorial-panel {
+		padding: 0.55rem;
+	}
+
+	.river-tutorial-card {
+		max-height: 92vh;
+		padding: 1rem;
+	}
+
+	.river-controls-guide {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.river-guide-grid,
+	.river-obstacle-guide {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.river-trash-guide .river-guide-item:last-child {
+		grid-column: span 2;
+	}
+
+	.river-guide-item {
+		min-height: 6.5rem;
+	}
+
+	.river-guide-item img {
+		width: 3.2rem;
+		height: 3.2rem;
+	}
+
+	.river-powerup-guide {
+		grid-template-columns: 1fr;
+	}
+
+	.river-hud {
+		gap: 0.6rem;
+	}
+
+	.river-score-box,
+	.river-timer-box {
+		min-width: 7.5rem;
+	}
+
+	.river-dialogue-box {
+		right: 18%;
+		bottom: 5%;
+		min-height: 28%;
+		padding-right: 17%;
+	}
+
+	.river-dialogue-character {
+		right: -5%;
+		width: 37%;
+	}
+
+	.river-dialogue-actions {
+		right: 2%;
+		bottom: 7%;
+	}
+
+	.river-result-dialogue-box {
+		right: 18%;
+		bottom: 5%;
+		min-height: 28%;
+		padding-right: 17%;
+	}
+
+	.river-result-character {
+		right: -5%;
+		width: 37%;
+	}
+
+	.river-result-actions {
+		gap: 0.5rem;
+		margin-top: 0.65rem;
+	}
+
+	.river-result-screen.is-hutan-dialogue .river-result-dialogue-box {
+		right: 38%;
+		bottom: 5%;
+		padding-right: 4%;
+	}
+
+	.river-item {
+		width: 9%;
+	}
+
+	.river-collection-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.river-collection-item:last-child {
+		grid-column: span 2;
+	}
+
+	.river-education-card {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	.river-education-card > img {
+		width: 7rem;
+		margin: 0 auto;
+	}
+
+	.river-modal-close {
+		margin-left: auto;
+	}
+}
